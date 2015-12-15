@@ -28,7 +28,13 @@
   height:30px;
   background-color:#FAFAFA;
 }
-.st{ z-index: 9999; position: fixed; left: 0; top: 0; width: 100%;}
+.st{
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
 .sh{
   width:100%;
   height:4px;
@@ -62,8 +68,15 @@
   display:none;
 }
 .acct{
-  width:200px;
+  width:204px;
   display:none;
+}
+.vshr{
+  display:inline-block;
+  width:4px;
+  height:10vh;
+  float:left;
+  background:linear-gradient(to right, #E0E0E0, #757575);
 }
 .mholder{
   height:0px;
@@ -77,6 +90,7 @@
   float:right;
 }
 .menubody{
+  display: inline-block;
   height:100vh;
   width:200px;
   background-color: #FAFAFA;
