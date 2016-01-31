@@ -14,9 +14,10 @@ navigator.geolocation.getCurrentPosition(
             ziploc = zip[1];
     });
 });
+z=60616;
 jQuery(document).ready(function($) {
   $.ajax({
-  url : "http://api.wunderground.com/api/9b48773e97ed7f2f/geolookup/conditions/q/"+60616+".json",
+  url : "http://api.wunderground.com/api/9b48773e97ed7f2f/geolookup/conditions/q/"+z+".json",
   dataType : "jsonp",
   success : function(parsed_json) {
   var location = parsed_json['location']['city'];
