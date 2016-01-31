@@ -1,0 +1,14 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script>
+navigator.geolocation.getCurrentPosition(
+  function(pos) {
+     var lat = pos.coords.latitude;
+     var long = pos.coords.longitude;
+});
+var point = new google.maps.LatLng(lat, long);
+new google.maps.Geocoder().geocode({'latLng': point}, function (res, status) {
+        var zip = res[0].formatted_address.match(/,\s\w{2}\s(\d{5})/);
+        alert('Zip code is ' +  zip[1]);
+});
+</script>
