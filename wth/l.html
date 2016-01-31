@@ -1,3 +1,4 @@
+<div id="a"></div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script>
@@ -7,7 +8,7 @@ navigator.geolocation.getCurrentPosition(
     var point = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     new google.maps.Geocoder().geocode({'latLng': point}, function (res, status) {
             var zip = res[0].formatted_address.match(/,\s\w{2}\s(\d{5})/);
-            alert('Zip code is ' +  zip[1]);
+            document.getElementById("a").innerHTML = zip[1]);
     });
 });
 </script>
