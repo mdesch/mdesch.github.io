@@ -2,7 +2,6 @@
 <div id="b"></div><br>
 <div id="c"></div><br>
 <div id="d"></div><br>
-<div id="z"></div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script>
@@ -11,14 +10,12 @@ navigator.geolocation.getCurrentPosition(
     var point = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     new google.maps.Geocoder().geocode({'latLng': point}, function (res, status) {
             var zip = res[0].formatted_address.match(/,\s\w{2}\s(\d{5})/);
-            document.getElementById("z").innerHTML = zip[1];
-            w();
+            w(zip[1]);
     });
 });
 </script>
 <script>
-function w(){
-  z = document.getElementById('z').innerHTML;
+function w(var z){
   $.ajax({
   url : "http://api.wunderground.com/api/9b48773e97ed7f2f/geolookup/conditions/q/"+z+".json",
   dataType : "jsonp",
