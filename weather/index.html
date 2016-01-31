@@ -1,34 +1,45 @@
-<div id="a"></div><br>
-<div id="b"></div><br>
-<div id="c"></div><br>
-<div id="d"></div><br>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script>
-navigator.geolocation.getCurrentPosition(
-  function(pos) {
-    var point = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    new google.maps.Geocoder().geocode({'latLng': point}, function (res, status) {
-            var zip = res[0].formatted_address.match(/,\s\w{2}\s(\d{5})/);
-            w(zip[1]);
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+    navigator.geolocation.getCurrentPosition(
+      function(pos) {
+        var point = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        new google.maps.Geocoder().geocode({'latLng': point}, function (res, status) {
+                var zip = res[0].formatted_address.match(/,\s\w{2}\s(\d{5})/);
+                w(zip[1]);
+        });
     });
-});
-</script>
-<script>
-function w(z){
-  $.ajax({
-  url : "http://api.wunderground.com/api/9b48773e97ed7f2f/geolookup/conditions/q/"+z+".json",
-  dataType : "jsonp",
-  success : function(parsed_json) {
-  var location = parsed_json['location']['city'];
-  var temp_f = parsed_json['current_observation']['temp_f'];
-  var wc = parsed_json['current_observation']['windchill_f'];
-  var weather = parsed_json['current_observation']['weather']
-  document.getElementById("a").innerHTML = location;
-  document.getElementById("b").innerHTML ="Temperature: "+temp_f;
-  document.getElementById("c").innerHTML ="WindChill: "+wc;
-  document.getElementById("d").innerHTML ="Weather: "+weather;
-  }
-  });
-}
-</script>
+    </script>
+    <script>
+    function w(z){
+      $.ajax({
+        url : "http://api.wunderground.com/api/9b48773e97ed7f2f/geolookup/conditions/q/"+z+".json",
+        dataType : "jsonp",
+        success : function(parsed_json) {
+          var location = parsed_json['location']['city'];
+          var temp_f = parsed_json['current_observation']['temp_f'];
+          var wc = parsed_json['current_observation']['windchill_f'];
+          var weather = parsed_json['current_observation']['weather'];
+          var pic = parsed_json['current_observation']['icon_url'];
+          document.getElementById("p").src = pic;
+          document.getElementById("a").innerHTML = location;
+          document.getElementById("b").innerHTML ="Temperature: "+temp_f;
+          document.getElementById("c").innerHTML ="WindChill: "+wc;
+          document.getElementById("d").innerHTML ="Weather: "+weather;
+        }
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <img id="p" src="">
+    <div id="a"></div><br>
+    <div id="b"></div><br>
+    <div id="c"></div><br>
+    <div id="d"></div><br>
+  </body>
+</html>
