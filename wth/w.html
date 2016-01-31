@@ -16,7 +16,7 @@ navigator.geolocation.getCurrentPosition(
 });
 jQuery(document).ready(function($) {
   $.ajax({
-  url : "http://api.wunderground.com/api/9b48773e97ed7f2f/geolookup/conditions/q/"+ziploc+".json",
+  url : "http://api.wunderground.com/api/9b48773e97ed7f2f/geolookup/conditions/q/"+60616+".json",
   dataType : "jsonp",
   success : function(parsed_json) {
   var location = parsed_json['location']['city'];
