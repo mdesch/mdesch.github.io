@@ -28,9 +28,9 @@
           var pic = parsed_json['current_observation']['icon_url'];
           document.getElementById("p").src = pic;
           document.getElementById("a").innerHTML = location;
-          document.getElementById("b").innerHTML ="Temperature: "+temp_f;
+          document.getElementById("b").innerHTML = temp_f;
           document.getElementById("c").innerHTML ="feels like: "+fl;
-          document.getElementById("d").innerHTML ="Weather: "+weather;
+          document.getElementById("d").innerHTML = weather;
         }
       });
     }
@@ -40,9 +40,9 @@
     <div class="top">
       <img id="p" src="">
       <div id="a" class="city"></div>
+      <div id="b" class="temp"></div>
+      <div id="c"></div>
+      <div id="d"></div>
     </div>
-    <div id="b" class="temp"></div>
-    <div id="c"></div>
-    <div id="d"></div>
   </body>
 </html>
