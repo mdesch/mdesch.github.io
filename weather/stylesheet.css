@@ -9,7 +9,8 @@
   margin:10px;
   width:500px;
   border-radius: 15px;
-  background-color: red;
+  margin-right: auto;
+  margin-left: auto;
 }
 .temp{
   font-size: 40px;
