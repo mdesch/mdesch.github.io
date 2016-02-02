@@ -20,10 +20,8 @@ body{
   font-size: 40px;
 }
 .sub{
-  font-size: 8px;
+  font-size: 10px;
   color: #57B7DF;
-  margin-right: auto;
-  margin-left: auto;
 }
 a:link{
   color:#57B7DF;
