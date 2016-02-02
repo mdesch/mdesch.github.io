@@ -22,6 +22,8 @@ body{
 .sub{
   font-size: 8px;
   color: #57B7DF;
+  margin-right: auto;
+  margin-left: auto;
 }
 a:link{
   color:#57B7DF;
