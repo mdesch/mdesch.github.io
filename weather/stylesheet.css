@@ -1,6 +1,7 @@
 .city{
   display:inline-block;
   font-size: 40px;
+  vertical-align: middle;
 }
 .top{
   border:5px solid #000;
