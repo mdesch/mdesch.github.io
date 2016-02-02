@@ -23,13 +23,13 @@
         success : function(parsed_json) {
           var location = parsed_json['location']['city'];
           var temp_f = parsed_json['current_observation']['temp_f'];
-          var wc = parsed_json['current_observation']['feels_like'];
+          var fl = parsed_json['current_observation']['feelslike_f'];
           var weather = parsed_json['current_observation']['weather'];
           var pic = parsed_json['current_observation']['icon_url'];
           document.getElementById("p").src = pic;
           document.getElementById("a").innerHTML = location;
           document.getElementById("b").innerHTML ="Temperature: "+temp_f;
-          document.getElementById("c").innerHTML ="WindChill: "+wc;
+          document.getElementById("c").innerHTML ="feels like: "+fl;
           document.getElementById("d").innerHTML ="Weather: "+weather;
         }
       });
