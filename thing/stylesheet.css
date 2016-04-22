@@ -35,3 +35,7 @@ button{
   padding: 1px 10px 1px 20px;
   background: none;
 }
+
+.cartodb-text{
+  display:none;
+}
