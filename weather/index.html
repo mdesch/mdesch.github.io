@@ -3,9 +3,9 @@
   <head>
     <title>Weather</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    /*<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>*/
     <link rel="stylesheet" href="stylesheet.css">
-    <script>
+    /*<script>
     navigator.geolocation.getCurrentPosition(
       function(pos) {
         var point = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -14,8 +14,11 @@
                 w(zip[1]);
         });
     });
-    </script>
+    </script>*/
     <script>
+      
+    w(60616);
+      
     function w(z){
       $.ajax({
         url : "http://api.wunderground.com/api/9b48773e97ed7f2f/geolookup/conditions/q/"+z+".json",
