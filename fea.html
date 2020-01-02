@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mike Desch's Project Site</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $(".m").click(function(){
+          $(".menu").animate({
+            width: 'toggle'
+          });
+        });
+        var nav = $('.hc');
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 1) {
+            nav.addClass("st");
+          } else {
+            nav.removeClass("st");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="hc">
+      <div class="header">
+        <div class="m">
+          <i class="material-icons md-48">menu</i>
+        </div>
+        <div class="l">Mike Desch's Project Site</div>
+      </div>
+      <div class="sh"></div>
+      <div class="mholder">
+        <div class="menu">
+          <div class="menubody">
+            <br><a href="home.html">Home</a><br>
+            <br><a href="sb.html">Steel Bridge Project</a><br>
+            <br><a href="fea.html">FEA Project (WIP)</a><br>
+            <br><a href="weather.html">Weather Project (WIP)</a><br>
+            <br><a href="Michael Desch Resume-eng.pdf" download>Resume</a><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="bod">
+      <div class="cont">This Project is a Work In Progress</div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">The Objective of this project is to create a javascript backed finite element analysis tool for K-12 Educational Purposes.  The Stiffness method will be used to calculate structural response to point and/or disributed loads.  User input of structure geometry to be implemented.  Define: Nodes, Members, Material Properties, Section Properties, Point Loads, Distributed Load, Return: Internal Forces, Reactions, Deflections</div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+    </div>
+  </body>
+</html>
