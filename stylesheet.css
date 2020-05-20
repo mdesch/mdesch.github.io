@@ -41,7 +41,7 @@
   background:linear-gradient(#757575, #E0E0E0);
 }
 .sh2{
-  width:80%;
+  width:90%;
   height:4px;
   background:linear-gradient(#757575, #E0E0E0);
   margin-left:auto;
@@ -56,7 +56,7 @@
   height:8px;
 }
 .cont{
-  width:80%;
+  width:90%;
   background-color: #FAFAFA;
   font-family: courier;
   margin-left:auto;
@@ -93,7 +93,7 @@
   display: inline-block;
   height:100vh;
   width:200px;
-  background-color: #FAFAFA;
+  background-color: #F1F1F1;
   font-size: 20px;
   font-family:courier;
   text-align: center;
