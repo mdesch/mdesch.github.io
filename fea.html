@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="stylesheet.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="math.js" type="text/javascript"></script>
     <script>
       $(function(){
         $(".m").click(function(){
@@ -49,9 +50,522 @@
       <div class="cont">This Project is a Work In Progress</div>
       <div class="sh2"></div>
       <div class="spacer"></div>
-      <div class="cont">The Objective of this project is to create a javascript backed finite element analysis tool for K-12 Educational Purposes.  The Stiffness method will be used to calculate structural response to point and/or disributed loads.  User input of structure geometry to be implemented.  Define: Nodes, Members, Material Properties, Section Properties, Point Loads, Distributed Load, Return: Internal Forces, Reactions, Deflections</div>
+      <div class="cont">
+      
+      <center>
+    <p>Undeformed Configuration</p>
+    <canvas id="udc" width="600" height="350" style="border:1px solid #000000;"></canvas>
+    <p>Deformed Configuration</p>
+    <canvas id="dc" width="600" height="350" style="border:1px solid #000000;"></canvas>
+    <p>Nodal Displacements</p>
+    <table id="dt" style="border:1px solid #000000;"></table>
+    <p>Reactions</p>
+    <table id="re" style="border:1px solid #000000;"></table>
+    <p>Element Forces</p>
+    <table id="ef" style="border:1px solid #000000;"></table>
+    
+  </center>
+      
+      </div>
       <div class="sh2"></div>
       <div class="spacer"></div>
     </div>
+      <script type="text/javascript">
+    
+    //Nodal Matrix
+    const nodes = math.matrix([[0, 0, 0, 0, 1, 0, 0],[1, 1, 0, 0, 0, 0, 0], [2, 0.5, math.sqrt(3)/2, 0, 0, 0, 100], [3, 1.5, math.sqrt(3)/2, 0, 0, 0, 100], [4, 2, 0, 0, 0, 0, 0], [5, 3, 0, 1, 1, 0, 0], [6, 2.5, math.sqrt(3)/2, 0, 0, 0, 100], [7, 1.5, 0, 0, 0, 0, 0]])
+    
+    //const nodes = math.matrix([[0,0,0,1,1,0,0],[1,1,0,1,1,0,0],[2,2,0,1,1,0,0],[3,3,0,1,1,0,0],[4,0,1,0,0,10,0],[5,1,1,0,0,0,0],[6,2,1,0,0,0,0],[7,3,1,0,0,0,0],[8,0,2,0,0,10,0],[9,1,2,0,0,0,0],[10,2,2,0,0,0,0],[11,3,2,0,0,0,0],[12,0,3,0,0,10,0],[13,1,3,0,0,0,0],[14,2,3,0,0,0,0],[15,3,3,0,0,0,0],[16,0,4,0,0,10,0],[17,1,4,0,0,0,0],[18,2,4,0,0,0,0],[19,3,4,0,0,0,0],])
+    
+    console.log("Nodal Matrix "+nodes.toString())
+    
+    //Element Matrix
+    const elements = math.matrix([[0, 0, 2, 1, 1000],[1, 0, 1, 1, 1000],[2, 1, 2, 1, 1000],[3,2,3,1,1000],[4,1,3,1,1000],[5,1,7,1,1000],[6,3,4,1,1000],[7,3,6,1,1000],[8,4,6,1,1000],[9,4,5,1,1000],[10,5,6,1,1000],[11,4,7,1,1000],[12,3,7,1,1000]])
+    
+    //const elements = math.matrix([[0,0,4,1,1000],[1,1,5,1,1000],[2,2,6,1,1000],[3,3,7,1,1000],[4,4,5,1,1000],[5,5,6,1,1000],[6,6,7,1,1000],[7,4,8,1,1000],[8,5,9,1,1000],[9,6,10,1,1000],[10,7,11,1,1000],[11,8,9,1,1000],[12,9,10,1,1000],[13,10,11,1,1000],[14,8,12,1,1000],[15,9,13,1,1000],[16,10,14,1,1000],[17,11,15,1,1000],[18,12,13,1,1000],[19,13,14,1,1000],[20,14,15,1,1000],[21,12,16,1,1000],[22,13,17,1,1000],[23,14,18,1,1000],[24,15,19,1,1000],[25,16,17,1,1000],[26,17,18,1,1000],[27,18,19,1,1000],[28,1,6,1,1000],[29,2,5,1,1000],[30,5,10,1,1000],[31,6,9,1,1000],[32,9,14,1,1000],[33,10,13,1,1000],[34,13,18,1,1000],[35,14,17,1,1000]])
+    
+    //const elements = math.matrix([[0,0,4,1,1000],[1,1,5,1,1000],[2,2,6,1,1000],[3,3,7,1,1000],[4,4,5,1,1000],[5,5,6,1,1000],[6,6,7,1,1000],[7,4,8,1,1000],[8,5,9,1,1000],[9,6,10,1,1000],[10,7,11,1,1000],[11,8,9,1,1000],[12,9,10,1,1000],[13,10,11,1,1000],[14,8,12,1,1000],[15,9,13,1,1000],[16,10,14,1,1000],[17,11,15,1,1000],[18,12,13,1,1000],[19,13,14,1,1000],[20,14,15,1,1000],[21,12,16,1,1000],[22,13,17,1,1000],[23,14,18,1,1000],[24,15,19,1,1000],[25,16,17,1,1000],[26,17,18,1,1000],[27,18,19,1,1000],[28,1,6,1,1000],[29,2,5,1,1000],[30,5,10,1,1000],[31,6,9,1,1000],[32,9,14,1,1000],[33,10,13,1,1000],[34,13,18,1,1000],[35,14,17,1,1000],[36,0,5,1,1000],[37,1,4,1,1000],[38,4,9,1,1000],[39,5,8,1,1000],[40,8,13,1,1000],[41,9,12,1,1000],[42,12,17,1,1000],[43,13,16,1,1000],[44,2,7,1,1000],[45,3,6,1,1000],[46,6,11,1,1000],[47,7,10,1,1000],[48,10,15,1,1000],[49,11,14,1,1000],[50,14,19,1,1000],[51,15,18,1,1000]])
+    
+    console.log("Element Matrix "+elements.toString())
+    
+    //Find number of nodes
+    const nonum = parseInt(nodes.size())
+    console.log("Number of nodes "+nonum.toString())
+    
+    //Find number of elements
+    const elnum = parseInt(elements.size())
+    console.log("Number of elements "+elnum.toString())
+    
+    //Find number of dof's
+    const dofnum = parseInt(nodes.size())*2
+    console.log("Number of dofs "+dofnum.toString())
+    
+    //Generating Undeformed Configuration Figure
+    //Calculate Scaling Factor
+    var xes = nodes.subset(math.index(math.range(0,nonum),1))
+    var xrange = math.max(xes)-math.min(xes)
+    console.log("Vector of X values "+xes.toString())
+    console.log("X range "+xrange.toString())
+    
+    var yes = nodes.subset(math.index(math.range(0,nonum),2))
+    var yrange = math.max(yes)-math.min(yes)
+    console.log("Vector of Y values "+yes.toString())
+    console.log("Y range "+yrange.toString())
+    
+    var udcwidth = document.getElementById('udc').offsetWidth-52
+    var udcheight = document.getElementById('udc').offsetHeight-52
+    console.log("Canvas Width "+udcwidth.toString())
+    console.log("Canvas Height "+udcheight.toString())
+    
+    var xratio = udcwidth/xrange
+    var yratio = udcheight/yrange
+    var sf = math.min(xratio, yratio)
+    console.log("Scaling factor "+sf.toString())
+    
+    var xoffset = (udcwidth-xrange*sf)/2
+    console.log("X offset "+xoffset.toString())
+    
+    var yoffset = (udcheight-yrange*sf)/2
+    console.log("Y offset "+yoffset.toString())
+    
+    
+    
+    for (var i=0; i<elnum; i++)
+    {
+      const node1 = elements.subset(math.index(i,1))
+      const node2 = elements.subset(math.index(i,2))
+      const x1 = nodes.subset(math.index(node1,1))
+      const x2 = nodes.subset(math.index(node2,1))
+      const y1 = nodes.subset(math.index(node1,2))
+      const y2 = nodes.subset(math.index(node2,2))
+      var c = document.getElementById("udc");
+      var ctx = c.getContext("2d");
+      ctx.moveTo(x1*sf+26+xoffset, (udcheight+52)-(y1*sf+26+yoffset));
+      ctx.lineTo(x2*sf+26+xoffset, (udcheight+52)-(y2*sf+26+yoffset));
+      ctx.strokeStyle = '#ff0000'
+      ctx.lineWidth = 3;
+      ctx.stroke()
+      ctx.font = "12px Arial";
+      ctx.fillStyle = '#ff0000'
+      ctx.fillText(elements.subset(math.index(i,0)).toString(), (((x1*sf+26+xoffset)+(x2*sf+26+xoffset))/2)+10, ((((udcheight+52)-(y1*sf+26+yoffset))+((udcheight+52)-(y2*sf+26+yoffset)))/2)+10)
+    }
+    
+    for (var i=0; i<nonum; i++)
+    {
+      var c = document.getElementById("udc");
+      var ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset), (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset), 4, 0, 2*math.pi);
+      ctx.fillStyle = '#000000'
+      ctx.fill()
+      ctx.strokeStyle = '#000000'
+      ctx.stroke()
+      
+      ctx.font = "12px Arial";
+      ctx.fillText(nodes.subset(math.index(i,0)).toString(), (nodes.subset(math.index(i,1))*sf+26+xoffset)+10, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+10);
+      
+      if (nodes.subset(math.index(i,3))==1 && nodes.subset(math.index(i,4))==1)
+      {
+        console.log("Pin BC @ node "+i)
+        ctx.beginPath()
+        ctx.lineWidth = 1;
+        ctx.moveTo((nodes.subset(math.index(i,1))*sf+26+xoffset), (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+4)
+        ctx.lineTo((nodes.subset(math.index(i,1))*sf+26+xoffset)+6, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+12)
+        ctx.lineTo((nodes.subset(math.index(i,1))*sf+26+xoffset)-6, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+12)
+        ctx.lineTo((nodes.subset(math.index(i,1))*sf+26+xoffset), (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+4)
+        ctx.strokeStyle = '#000000'
+        ctx.stroke()
+        
+      }
+      if (nodes.subset(math.index(i,3))==0 && nodes.subset(math.index(i,4))==1)
+      {
+        console.log("Horizontal Roller BC @ node "+i)
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset)-4, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+8, 4, 0, 2*math.pi);
+        ctx.strokeStyle = '#000000'
+        ctx.stroke()
+        ctx.beginPath();
+        ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset)+4, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+8, 4, 0, 2*math.pi);
+        ctx.stroke()
+        
+      }
+      if (nodes.subset(math.index(i,3))==1 && nodes.subset(math.index(i,4))==0)
+      {
+        console.log("Vertical Roller BC @ node "+i)
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset)-8, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+4, 4, 0, 2*math.pi);
+        ctx.strokeStyle = '#000000'
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset)-8, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)-4, 4, 0, 2*math.pi);
+        ctx.stroke()
+      }
+    }
+    
+    //Combined element stiffness matrices element coordinate system
+    const kecs = math.zeros(4,4*elnum)
+    var i;
+    for (var i=0; i<elnum; i++)
+    {
+      const a = i*4
+      const node1 = elements.subset(math.index(i,1))
+      const node2 = elements.subset(math.index(i,2))
+      const A = elements.subset(math.index(i,3))
+      const E = elements.subset(math.index(i,4))
+      const x1 = nodes.subset(math.index(node1,1))
+      const x2 = nodes.subset(math.index(node2,1))
+      const y1 = nodes.subset(math.index(node1,2))
+      const y2 = nodes.subset(math.index(node2,2))
+      const L = math.sqrt(((x2-x1)**2)+((y2-y1)**2))
+      
+      kecs.subset(math.index(0,a),A*E/L)
+      kecs.subset(math.index(0,2+a),-A*E/L)
+      kecs.subset(math.index(2,2+a),A*E/L)
+      kecs.subset(math.index(2,a),-A*E/L)
+    }
+    console.log("ECS "+kecs.toString())
+    
+    //Combined rotation matrices
+    const rot = math.zeros(4,4*elnum)
+    var i;
+    for (var i=0; i<elnum; i++)
+    {
+      const a = i*4
+      const node1 = elements.subset(math.index(i,1))
+      const node2 = elements.subset(math.index(i,2))
+      const x1 = nodes.subset(math.index(node1,1))
+      const x2 = nodes.subset(math.index(node2,1))
+      const y1 = nodes.subset(math.index(node1,2))
+      const y2 = nodes.subset(math.index(node2,2))
+      const v = y2-y1
+      const h = x2-x1
+      var alpha = math.atan(v/h)
+      if (h<0)
+      {
+        alpha = alpha + math.pi
+      }
+      rot.subset(math.index(0,a),math.cos(alpha))
+      rot.subset(math.index(1,1+a),math.cos(alpha))
+      rot.subset(math.index(2,2+a),math.cos(alpha))
+      rot.subset(math.index(3,3+a),math.cos(alpha))
+      rot.subset(math.index(0,1+a),-math.sin(alpha))
+      rot.subset(math.index(1,a),math.sin(alpha))
+      rot.subset(math.index(2,3+a),-math.sin(alpha))
+      rot.subset(math.index(3,2+a),math.sin(alpha))
+    }
+    console.log("Rotation "+rot.toString())
+    
+    //Combined element stiffness matrices global coordinate system
+    const kgcs = math.zeros(4,4*elnum)
+    var i;
+    for (var i=0; i<elnum; i++)
+    {
+      const a = i*4
+      var r = rot.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]))
+      var k = kecs.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]))
+      const ki = math.multiply(math.multiply(r,k),math.transpose(r))
+      kgcs.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]),ki)
+    }
+    console.log("kgcs "+kgcs.toString())
+    
+    //Combined global stiffness matrix components by element
+    const Kgm = math.zeros(dofnum,dofnum*elnum)
+    var i;
+    for (var i=0; i<elnum; i++)
+    {
+      const a = i*4
+      const b = i*dofnum
+      const node1 = elements.subset(math.index(i,1))
+      const node2 = elements.subset(math.index(i,2))
+      const dof0 = node1*2
+      const dof1 = node1*2+1
+      const dof2 = node2*2
+      const dof3 = node2*2+1
+      const Kgi = math.zeros(dofnum,dofnum)
+      var kg1 = kgcs.subset(math.index([0,1],[a,a+1]))
+      Kgi.subset(math.index([dof0,dof1],[dof0,dof1]),kg1)
+      var kg2 = kgcs.subset(math.index([0,1],[a+2,a+3]))
+      Kgi.subset(math.index([dof0,dof1],[dof2,dof3]),kg2)
+      var kg3 = kgcs.subset(math.index([2,3],[a,a+1]))
+      Kgi.subset(math.index([dof2,dof3],[dof0,dof1]),kg3)
+      var kg4 = kgcs.subset(math.index([2,3],[a+2,a+3]))
+      Kgi.subset(math.index([dof2,dof3],[dof2,dof3]),kg4)
+      console.log("Kgi "+Kgi.toString())
+      Kgm.subset(math.index(math.range(0,dofnum),math.range(b,b+dofnum)),Kgi)
+    }
+    console.log("Kgm "+Kgm.toString())
+    
+    //Global stiffness Matrix
+    var Kg = math.zeros(dofnum,dofnum)
+    var i;
+    for (var i=0; i<elnum; i++)
+    {
+      const a = i*dofnum
+      Kg = math.add(Kg,Kgm.subset(math.index(math.range(0,dofnum),math.range(a,a+dofnum))))
+    }
+    console.log("Kg "+Kg.toString())
+    
+    //Create Initial Force Vector
+    var fi = math.zeros(dofnum,1)
+    var i;
+    for (var i=0; i<nonum; i++)
+    {
+      var f1 = nodes.subset(math.index(i,5))
+      var f2 = nodes.subset(math.index(i,6))
+      fi.subset(math.index(i*2,0),f1)
+      fi.subset(math.index(i*2+1,0),f2)
+    }
+    console.log("f initial "+fi.toString())
+    
+    //Application of Boundary Conditions to Kg and fi
+    var i;
+    var active = []
+    for (var i=0; i<nonum; i++)
+    {
+      var dof1 = nodes.subset(math.index(i,[0,3]))
+      var dof2 = nodes.subset(math.index(i,[0,4]))
+      if (dof1.subset(math.index(0,1))==0)
+      {
+        active.push(dof1.subset(math.index(0,0))*2)
+      }
+      if (dof2.subset(math.index(0,1))==0)
+      {
+        active.push(dof2.subset(math.index(0,0))*2+1)
+      }
+    }
+    console.log("active "+active)
+    var Ka = Kg.subset(math.index(active,active))
+    console.log("Ka "+Ka.toString())
+    var fa = fi.subset(math.index(active,0))
+    console.log("fa "+fa.toString())
+    
+    //Invert active stiffness matrix
+    var Kainv = math.inv(Ka)
+    console.log("Ka Inverse "+Kainv.toString())
+    
+    //Active Displacements
+    var ua = math.multiply(Kainv,fa)
+    console.log("Active Displacements "+ua.toString())
+    
+    //Global displacements
+    var ug = math.zeros(dofnum,1)
+    ug.subset(math.index(active,0),ua)
+    console.log("Global Displacement Vector "+math.format(ug,{notation: 'fixed', precision: 4}).toString())
+    
+    //Global force vector
+    var fg = math.multiply(Kg,ug)
+    console.log("Global forces "+math.format(fg,{notation: 'fixed', precision: 4}).toString())
+    
+    //Combined Element force vectors
+    const fe = math.zeros(4,elnum)
+    var i;
+    for (var i=0; i<elnum; i++)
+    {
+      var node1 = elements.subset(math.index(i,1))
+      var node2 = elements.subset(math.index(i,2))
+      var ue = math.zeros(4,1)
+      ue.subset(math.index([0,1],0),ug.subset(math.index([node1*2,node1*2+1],0)))
+      ue.subset(math.index([2,3],0),ug.subset(math.index([node2*2,node2*2+1],0)))
+      
+      const a = i*4
+      var r = rot.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]))
+      var k = kecs.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]))
+      const fi = math.multiply(math.multiply(k,math.transpose(r)),ue)
+      fe.subset(math.index([0,1,2,3],i),fi)
+    }
+    console.log("Element Forces "+math.format(fe,{notation: 'fixed', precision: 4}).toString())
+    
+    //Generating Deformed Configuration Figure
+    //Calculate Scaling Factor
+    var xes = nodes.subset(math.index(math.range(0,nonum),1))
+    var dxes = math.add(nodes.subset(math.index(math.range(0,nonum),1)),ug.subset(math.index(math.range(0,nonum*2,2),0)))
+    var dxrange = math.max(math.max(xes),math.max(dxes))-math.min(math.min(xes),math.min(dxes))
+    console.log("Vector of X values "+dxes.toString())
+    console.log("X range "+dxrange.toString())
+    
+    var yes = nodes.subset(math.index(math.range(0,nonum),2))
+    var dyes = math.add(nodes.subset(math.index(math.range(0,nonum),2)),ug.subset(math.index(math.range(1,nonum*2,2),0)))
+    var dyrange = math.max(math.max(yes),math.max(dyes))-math.min(math.min(yes),math.min(dyes))
+    console.log("Vector of Y values "+dyes.toString())
+    console.log("Y range "+dyrange.toString())
+    
+    var dcwidth = document.getElementById('dc').offsetWidth-52
+    var dcheight = document.getElementById('dc').offsetHeight-52
+    console.log("Canvas Width "+dcwidth.toString())
+    console.log("Canvas Height "+dcheight.toString())
+    
+    var dxratio = dcwidth/dxrange
+    var dyratio = dcheight/dyrange
+    var dsf = math.min(dxratio, dyratio)
+    console.log("Scaling factor "+dsf.toString())
+    
+    var dxoffset = (dcwidth-dxrange*dsf)/2
+    console.log("X offset "+dxoffset.toString())
+    
+    var dyoffset = (dcheight-dyrange*dsf)/2
+    console.log("Y offset "+dyoffset.toString())
+    
+    var nxoffset = math.abs(math.min(math.min(xes),math.min(dxes),0))*dsf
+    console.log("min X offset "+nxoffset.toString())
+    var nyoffset = math.abs(math.min(math.min(yes),math.min(dyes),0))*dsf
+    console.log("min Y offset "+nyoffset.toString())
+    
+    /*for (var i=0; i<nonum; i++)
+    {
+      var c = document.getElementById("dc");
+      var ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.arc((ug.subset(math.index(2*i,0))*dsf+26+dxoffset), (dcheight+52)-(ug.subset(math.index(2*i+1,0))*dsf+26+dyoffset), 4, 0, 2*math.pi);
+      ctx.fillStyle = '#000000'
+      ctx.fill()
+      ctx.strokeStyle = '#000000'
+      ctx.stroke()
+    }*/
+    
+    for (var i=0; i<elnum; i++)
+    {
+      const node1 = elements.subset(math.index(i,1))
+      const node2 = elements.subset(math.index(i,2))
+      const x1 = nodes.subset(math.index(node1,1))
+      const x2 = nodes.subset(math.index(node2,1))
+      const y1 = nodes.subset(math.index(node1,2))
+      const y2 = nodes.subset(math.index(node2,2))
+      var c = document.getElementById("dc");
+      var ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.moveTo(x1*dsf+26+dxoffset+nxoffset, (dcheight+52)-(y1*dsf+26+dyoffset+nyoffset));
+      ctx.lineTo(x2*dsf+26+dxoffset+nxoffset, (dcheight+52)-(y2*dsf+26+dyoffset+nyoffset));
+      ctx.strokeStyle = '#cfcfcf';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    
+    for (var i=0; i<elnum; i++)
+    {
+      const node1 = elements.subset(math.index(i,1))
+      const node2 = elements.subset(math.index(i,2))
+      const x1 = nodes.subset(math.index(node1,1))
+      const x2 = nodes.subset(math.index(node2,1))
+      const y1 = nodes.subset(math.index(node1,2))
+      const y2 = nodes.subset(math.index(node2,2))
+      var u1 = ug.subset(math.index(2*node1,0))
+      var u2 = ug.subset(math.index(2*node2,0))
+      var w1 = ug.subset(math.index(2*node1+1,0))
+      var w2 = ug.subset(math.index(2*node2+1,0))
+      var c = document.getElementById("dc");
+      var ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.moveTo((x1+u1)*dsf+26+dxoffset+nxoffset, (dcheight+52)-((y1+w1)*dsf+26+dyoffset+nyoffset));
+      ctx.lineTo((x2+u2)*dsf+26+dxoffset+nxoffset, (dcheight+52)-((y2+w2)*dsf+26+dyoffset+nyoffset));
+      ctx.strokeStyle = '#0000ff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+    
+    var t = document.getElementById("dt");
+    for (var i=0; i<parseInt(ug.size); i++)
+    {
+      var r = t.insertRow(i);
+      var c0 = r.insertCell(0);
+      c0.innerHTML = i;
+      var c1 = r.insertCell(1);
+      c1.innerHTML = math.format(ug.subset(math.index(i,0)),{notation: 'fixed', precision: 4}).toString();
+    }
+    
+    function dispTable() 
+    {
+      var table = document.getElementById("dt");
+      var row = table.insertRow(0);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      cell1.innerHTML = "Node #";
+      cell2.innerHTML = "X Displacement";
+      cell3.innerHTML = "Y Displacement";
+      for (var i=0; i<(dofnum/2); i++)
+      {
+        var row = table.insertRow(i+1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell1.innerHTML = i.toString();
+        cell2.innerHTML = math.format(ug.subset(math.index(2*i,0)),{notation: 'fixed', precision: 4}).toString();
+        cell3.innerHTML = math.format(ug.subset(math.index(2*i+1,0)),{notation: 'fixed', precision: 4}).toString();
+      }
+    }
+    
+    function reactTable() 
+    {
+      var table = document.getElementById("re");
+      var row = table.insertRow(0);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      cell1.innerHTML = "Node #";
+      cell2.innerHTML = "F_x";
+      cell3.innerHTML = "F_y";
+      var j = 1;
+      for (var i=0; i<(dofnum/2); i++)
+      {
+        if (nodes.subset(math.index(i,3))==1 || nodes.subset(math.index(i,4))==1)
+        {
+          var row = table.insertRow(j);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          cell1.innerHTML = i.toString();
+          cell2.innerHTML = math.format(fg.subset(math.index(2*i,0)),{notation: 'fixed', precision: 4}).toString();
+          cell3.innerHTML = math.format(fg.subset(math.index(2*i+1,0)),{notation: 'fixed', precision: 4}).toString();
+          j++;
+        }
+      }
+    }
+    
+    
+    function elementForcesTable() 
+    {
+      var table = document.getElementById("ef");
+      var row = table.insertRow(0);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      cell1.innerHTML = "Element #";
+      cell2.innerHTML = "Force";
+      cell3.innerHTML = "Mode";
+      for (var i=0; i<(elnum); i++)
+      {
+        var row = table.insertRow(i+1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell1.innerHTML = i.toString();
+        cell2.innerHTML = math.abs(math.format(fe.subset(math.index(2,i)),{notation: 'fixed', precision: 4})).toString();
+        var s = "";
+        if(math.format(fe.subset(math.index(2,i)),{notation: 'fixed', precision: 4})>0)
+        {
+          s = "Tension"
+        }
+        if(math.format(fe.subset(math.index(2,i)),{notation: 'fixed', precision: 4})<0)
+        {
+          s = "Compression"
+        }
+        if(math.format(fe.subset(math.index(2,i)),{notation: 'fixed', precision: 4})==0)
+        {
+          s = "Zero Force Member"
+        }
+        
+        cell3.innerHTML = s;
+      }
+    }
+
+    dispTable()
+    reactTable()
+    elementForcesTable()
+
+    
+    
+  </script>
   </body>
 </html>
