@@ -50,29 +50,31 @@
       <div class="cont" style="color:red;">**This Project is a Work In Progress**</div>
       <div class="sh2"></div>
       <div class="spacer"></div>
-      <div class="cont">---User Structure Input Goes Here---
-      <p>Undeformed Configuration</p>
-      <canvas id="udc" width="600" height="350" style="border:1px solid #000000;"></canvas></div>
+      <div class="cont">
+        <center>
+          <p>---User Structure Input Goes Here---</p>
+          <p>Undeformed Configuration</p>
+          <canvas id="udc" width="600" height="350" style="border:1px solid #000000;"></canvas>
+        </center>
+      </div>
       <div class="sh2"></div>
       <div class="spacer"></div>
       <div class="cont">
-      
-      <center>
-        <p>Deformed Configuration</p>
-        <canvas id="dc" width="600" height="350" style="border:1px solid #000000;"></canvas>
-        <p>Nodal Displacements</p>
-        <table id="dt" style="border:1px solid #000000;"></table>
-        <p>Reactions</p>
-        <table id="re" style="border:1px solid #000000;"></table>
-        <p>Element Forces</p>
-        <table id="ef" style="border:1px solid #000000;"></table>
-      </center>
-      
+        <center>
+          <p>Deformed Configuration</p>
+          <canvas id="dc" width="600" height="350" style="border:1px solid #000000;"></canvas>
+          <p>Nodal Displacements</p>
+          <table id="dt" style="border:1px solid #000000;"></table>
+          <p>Reactions</p>
+          <table id="re" style="border:1px solid #000000;"></table>
+          <p>Element Forces</p>
+          <table id="ef" style="border:1px solid #000000;"></table>
+        </center>
       </div>
       <div class="sh2"></div>
       <div class="spacer"></div>
     </div>
-      <script type="text/javascript">
+    <script type="text/javascript">
     
     //Nodal Matrix
     const nodes = math.matrix([[0, 0, 0, 0, 1, 0, 0],[1, 1, 0, 0, 0, 0, 0], [2, 0.5, math.sqrt(3)/2, 0, 0, 0, 100], [3, 1.5, math.sqrt(3)/2, 0, 0, 0, 100], [4, 2, 0, 0, 0, 0, 0], [5, 3, 0, 1, 1, 0, 0], [6, 2.5, math.sqrt(3)/2, 0, 0, 0, 100], [7, 1.5, 0, 0, 0, 0, 0]])
