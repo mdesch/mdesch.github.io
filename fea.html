@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mike Desch's FEA Truss Tool</title>
+    <title>Mike Desch's Project Site</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="stylesheet.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -23,6 +23,9 @@
         });
       });
     </script>
+    <script>
+    var a=['log','format','</select>','transpose','Number\x20of\x20dofs\x20','cos','Vertical\x20Roller','<input\x20type=\x27text\x27\x20id=\x27matname\x27\x20name=\x27matname\x27\x20placeholder=\x27Material\x20Name\x27><input\x20type=\x27number\x27\x20id=\x27matval\x27\x20name=\x27matval\x27\x20placeholder=\x27Modulous\x20of\x20Elasticity\x20(psi)\x27><button\x20onclick=\x27addmat()\x27>Add</button><button\x20onclick=\x27canmat()\x27>Cancel</button>','Pin\x20BC\x20@\x20node\x20','Cross\x20Section\x20#','max','Area\x20(in^2)','Y\x20offset\x20','csname','zeros','X\x20offset\x20','arc','#0000ff','fa\x20','<input\x20type=\x27number\x27\x20id=\x27xcoord\x27\x20name=\x27xcoord\x27\x20placeholder=\x27Node\x20X\x20Coordinate\x20(in)\x27><input\x20type=\x27number\x27\x20id=\x27ycoord\x27\x20name=\x27ycoord\x27\x20placeholder=\x27Node\x20Y\x20Coordinate\x20(in)\x27><button\x20onclick=\x27addnode()\x27>Add</button><button\x20onclick=\x27cannode()\x27>Cancel</button>','Global\x20Displacement\x20Vector\x20','X\x20range\x20','beginPath','lineWidth','insertCell','sin','X\x20Displacement','Element\x20Forces\x20','substring','min\x20X\x20offset\x20','Zero\x20Force\x20Member','type','<select\x20name=\x27bcnode\x27\x20id=\x27bcnode\x27><option\x20disabled\x20selected>Pick\x20a\x20Node</option>','inv','index','Starting\x20Node','lineTo','Horizontal\x20Roller\x20BC\x20@\x20node\x20','kgcs\x20','Element\x20#','Element\x20Matrix\x20','Y\x20range\x20','#000000','dcs','F_x','offsetWidth','Compression','multiply','Material\x20#','Force','bcnode','<option>Pin</option>','cst','delement','</option>','ycomp','value','Canvas\x20Width\x20','getElementById','min','fnode','sqrt','#ff0000','<input\x20type=\x27number\x27\x20id=\x27xcomp\x27\x20name=\x27xcomp\x27\x20placeholder=\x27Force\x20X\x20Component\x20(lbs)\x27><input\x20type=\x27number\x27\x20id=\x27ycomp\x27\x20name=\x27ycomp\x27\x20placeholder=\x27Force\x20Y\x20Component\x20(lbs)\x27><button\x20onclick=\x27addf()\x27>Add</button><button\x20onclick=\x27canf()\x27>Cancel</button>','Canvas\x20Height\x20','bct','Active\x20Displacements\x20','active\x20','Number\x20of\x20elements\x20','innerHTML','X\x20Component\x20(lbs)','Global\x20forces\x20','Number\x20of\x20nodes\x20','ycoord','<option>','elementt','Mode','<select\x20name=\x27fnode\x27\x20id=\x27fnode\x27><option\x20disabled\x20selected>Pick\x20a\x20Node</option>','F_y','toString','Scaling\x20factor\x20','Tension','startnode','udc','fillText','endnode','csval','<option>Vertical\x20Roller</option>','dmat','X\x20Coordinate\x20(in)','Location','matrix','offsetHeight','fillStyle','size','insertRow','stroke','nodet','Ending\x20Node','Kgi\x20','#cfcfcf','dnode','strokeStyle','matname','<select\x20name=\x27endnode\x27\x20id=\x27endnode\x27><option\x20disabled\x20selected>Pick\x20the\x20Ending\x20Node</option>','Ka\x20Inverse\x20','push','range','Vector\x20of\x20X\x20values\x20','<option>Node\x20','min\x20Y\x20offset\x20','<select\x20name=\x27material\x27\x20id=\x27material\x27><option\x20disabled\x20selected>Pick\x20a\x20Material</option>','dbc','Material','<input\x20type=\x27text\x27\x20id=\x27csname\x27\x20name=\x27csname\x27\x20placeholder=\x27Cross\x20Section\x20Name\x27><input\x20type=\x27number\x27\x20id=\x27csval\x27\x20name=\x27csval\x27\x20placeholder=\x27Area\x20(in^2)\x27><button\x20onclick=\x27addcs()\x27>Add</button><button\x20onclick=\x27cancs()\x27>Cancel</button>','matval','12px\x20Arial','Modulous\x20of\x20Elasticity\x20(psi)','fixed','add','Node\x20#','font','getContext','abs','xcoord','subset','Y\x20Coordinate\x20(in)','Cross\x20Section\x20Name','Y\x20Displacement','material','fill','Cross\x20Section','moveTo','<option>Horizontal\x20Roller</option>'];(function(b,e){var f=function(g){while(--g){b['push'](b['shift']());}};f(++e);}(a,0xe1));var b=function(c,d){c=c-0x0;var e=a[c];return e;};var mats=math[b('0x0')]([]),cs=math['matrix']([]),nodelist=math[b('0x0')]([]),elementlist=math[b('0x0')]([]),bclist=math[b('0x0')]([]),forcelist=math[b('0x0')]([]);function newmat(){document[b('0x65')](b('0x83'))[b('0x70')]=b('0x32');}function newcs(){document[b('0x65')](b('0x56'))['innerHTML']=b('0x17');}function newnode(){document[b('0x65')](b('0xa'))['innerHTML']=b('0x3e');}function newelement(){var c='';c=c+'<select\x20name=\x27startnode\x27\x20id=\x27startnode\x27><option\x20disabled\x20selected>Pick\x20the\x20Starting\x20Node</option>';var d=nodelist[b('0x3')]()[0x0];for(var e=0x0;e<d;e++){c=c+b('0x12')+e[b('0x7a')]()+b('0x61');}c=c+b('0x2d');c=c+b('0xd');for(var e=0x0;e<d;e++){c=c+b('0x12')+e['toString']()+b('0x61');}c=c+b('0x2d');c=c+'<select\x20name=\x27cross\x27\x20id=\x27crosssec\x27><option\x20disabled\x20selected>Pick\x20a\x20Cross\x20Section</option>';var f=cs[b('0x3')]()[0x0];for(var e=0x0;e<f;e++){c=c+b('0x75')+cs[b('0x22')](math[b('0x4d')](e,0x0))+'</option>';}c=c+b('0x2d');c=c+b('0x14');var g=mats[b('0x3')]()[0x0];for(var e=0x0;e<g;e++){c=c+b('0x75')+mats[b('0x22')](math[b('0x4d')](e,0x0))+'</option>';}c=c+b('0x2d');c=c+'<button\x20onclick=\x27addelement()\x27>Add</button><button\x20onclick=\x27canelement()\x27>Cancel</button>';document[b('0x65')]('delement')[b('0x70')]=c;}function newbc(){var c='';c=c+b('0x4b');var d=nodelist[b('0x3')]()[0x0];for(var e=0x0;e<d;e++){c=c+'<option>Node\x20'+e[b('0x7a')]()+'</option>';}c=c+b('0x2d');c=c+'<select\x20name=\x27type\x27\x20id=\x27type\x27><option\x20disabled\x20selected>Pick\x20the\x20Boundary\x20Condition\x20Type</option>';c=c+b('0x5e');c=c+b('0x2a');c=c+b('0x82');c=c+b('0x2d');c=c+'<button\x20onclick=\x27addbc()\x27>Add</button><button\x20onclick=\x27canbc()\x27>Cancel</button>';document[b('0x65')](b('0x15'))[b('0x70')]=c;}function newf(){var c='';c=c+b('0x78');var d=nodelist[b('0x3')]()[0x0];for(var e=0x0;e<d;e++){c=c+b('0x12')+e[b('0x7a')]()+b('0x61');}c=c+b('0x2d');c=c+b('0x6a');document[b('0x65')]('df')[b('0x70')]=c;}function canmat(){document[b('0x65')](b('0x83'))[b('0x70')]='';}function cancs(){document[b('0x65')](b('0x56'))[b('0x70')]='';}function cannode(){document[b('0x65')](b('0xa'))['innerHTML']='';}function canelement(){document[b('0x65')](b('0x60'))[b('0x70')]='';}function canbc(){document['getElementById'](b('0x15'))['innerHTML']='';}function canf(){document[b('0x65')]('df')[b('0x70')]='';}function addmat(){var c=mats,d=mats['size']()[0x0],e=document[b('0x65')](b('0xc'))[b('0x63')],f=document[b('0x65')](b('0x18'))['value'],g=math['zeros'](d+0x1,0x2);d>0x0&&g[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,d),[0x0,0x1]),c);g[b('0x22')](math[b('0x4d')](d,[0x0,0x1]),[e,f]);mats=g;document['getElementById'](b('0x83'))[b('0x70')]='';document[b('0x65')]('mt')[b('0x70')]='';var h=document['getElementById']('mt'),j=h[b('0x4')](0x0),k=j[b('0x43')](0x0),l=j['insertCell'](0x1),m=j['insertCell'](0x2);k[b('0x70')]=b('0x5b');l[b('0x70')]='Material\x20Name';m[b('0x70')]=b('0x1a');for(var n=0x0;n<d+0x1;n++){var j=h[b('0x4')](n+0x1),k=j['insertCell'](0x0),l=j[b('0x43')](0x1),m=j[b('0x43')](0x2);k[b('0x70')]=n[b('0x7a')]();l[b('0x70')]=mats[b('0x22')](math['index'](n,0x0));m[b('0x70')]=mats[b('0x22')](math['index'](n,0x1));}}function addcs(){var c=cs,d=cs[b('0x3')]()[0x0],e=document[b('0x65')](b('0x38'))[b('0x63')],f=document[b('0x65')](b('0x81'))[b('0x63')],g=math[b('0x39')](d+0x1,0x2);d>0x0&&g[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,d),[0x0,0x1]),c);g['subset'](math[b('0x4d')](d,[0x0,0x1]),[e,f]);cs=g;document[b('0x65')]('dcs')[b('0x70')]='';document[b('0x65')](b('0x5f'))[b('0x70')]='';var h=document[b('0x65')](b('0x5f')),j=h[b('0x4')](0x0),k=j[b('0x43')](0x0),l=j['insertCell'](0x1),m=j[b('0x43')](0x2);k[b('0x70')]=b('0x34');l[b('0x70')]=b('0x24');m[b('0x70')]=b('0x36');for(var n=0x0;n<d+0x1;n++){var j=h[b('0x4')](n+0x1),k=j[b('0x43')](0x0),l=j['insertCell'](0x1),m=j[b('0x43')](0x2);k[b('0x70')]=n[b('0x7a')]();l['innerHTML']=cs[b('0x22')](math[b('0x4d')](n,0x0));m[b('0x70')]=cs[b('0x22')](math['index'](n,0x1));}}function addnode(){var c=nodelist,d=nodelist[b('0x3')]()[0x0],e=document[b('0x65')](b('0x21'))[b('0x63')],f=document[b('0x65')](b('0x74'))[b('0x63')],g=math[b('0x39')](d+0x1,0x2);d>0x0&&g['subset'](math[b('0x4d')](math['range'](0x0,d),[0x0,0x1]),c);g[b('0x22')](math[b('0x4d')](d,[0x0,0x1]),[e,f]);nodelist=g;document[b('0x65')]('dnode')[b('0x70')]='';document[b('0x65')](b('0x6'))[b('0x70')]='';var h=document[b('0x65')](b('0x6')),j=h[b('0x4')](0x0),k=j[b('0x43')](0x0),l=j[b('0x43')](0x1),m=j[b('0x43')](0x2);k['innerHTML']='Node\x20#';l['innerHTML']=b('0x84');m['innerHTML']=b('0x23');for(var n=0x0;n<d+0x1;n++){var j=h[b('0x4')](n+0x1),k=j[b('0x43')](0x0),l=j[b('0x43')](0x1),m=j[b('0x43')](0x2);k['innerHTML']=n[b('0x7a')]();l[b('0x70')]=nodelist[b('0x22')](math[b('0x4d')](n,0x0));m[b('0x70')]=nodelist[b('0x22')](math[b('0x4d')](n,0x1));}}function addelement(){var c=elementlist,d=elementlist['size']()[0x0],e=document[b('0x65')](b('0x7d'))[b('0x63')],f=document[b('0x65')](b('0x80'))[b('0x63')],g=document[b('0x65')]('crosssec')[b('0x63')],h=document[b('0x65')](b('0x26'))[b('0x63')],j=math['zeros'](d+0x1,0x4);d>0x0&&j[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,d),[0x0,0x1,0x2,0x3]),c);j[b('0x22')](math[b('0x4d')](d,[0x0,0x1,0x2,0x3]),[e,f,g,h]);elementlist=j;document['getElementById'](b('0x60'))['innerHTML']='';document[b('0x65')](b('0x76'))['innerHTML']='';var k=document[b('0x65')]('elementt'),l=k['insertRow'](0x0),m=l['insertCell'](0x0),n=l[b('0x43')](0x1),o=l['insertCell'](0x2),p=l[b('0x43')](0x3),q=l[b('0x43')](0x4);m[b('0x70')]=b('0x52');n['innerHTML']=b('0x4e');o[b('0x70')]=b('0x7');p[b('0x70')]=b('0x28');q[b('0x70')]=b('0x16');for(var r=0x0;r<d+0x1;r++){var l=k[b('0x4')](r+0x1),m=l[b('0x43')](0x0),n=l[b('0x43')](0x1),o=l[b('0x43')](0x2),p=l[b('0x43')](0x3),q=l[b('0x43')](0x4);m['innerHTML']=r[b('0x7a')]();n[b('0x70')]=elementlist[b('0x22')](math[b('0x4d')](r,0x0));o[b('0x70')]=elementlist[b('0x22')](math[b('0x4d')](r,0x1));p[b('0x70')]=elementlist[b('0x22')](math[b('0x4d')](r,0x2));q[b('0x70')]=elementlist[b('0x22')](math['index'](r,0x3));}}function addbc(){var c=bclist,d=bclist['size']()[0x0],e=document[b('0x65')](b('0x5d'))['value'],f=document['getElementById'](b('0x4a'))[b('0x63')],g=math[b('0x39')](d+0x1,0x2);d>0x0&&g[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,d),[0x0,0x1]),c);g['subset'](math['index'](d,[0x0,0x1]),[e,f]);bclist=g;document[b('0x65')]('dbc')[b('0x70')]='';document[b('0x65')]('bct')[b('0x70')]='';var h=document[b('0x65')](b('0x6c')),j=h[b('0x4')](0x0),k=j['insertCell'](0x0),l=j[b('0x43')](0x1),m=j[b('0x43')](0x2);k['innerHTML']='BC\x20#';l[b('0x70')]=b('0x85');m[b('0x70')]='BC\x20Type';for(var n=0x0;n<d+0x1;n++){var j=h[b('0x4')](n+0x1),k=j[b('0x43')](0x0),l=j[b('0x43')](0x1),m=j['insertCell'](0x2);k[b('0x70')]=n[b('0x7a')]();l['innerHTML']=bclist[b('0x22')](math['index'](n,0x0));m[b('0x70')]=bclist[b('0x22')](math[b('0x4d')](n,0x1));}}function addf(){var c=forcelist,d=forcelist['size']()[0x0],e=document['getElementById'](b('0x67'))[b('0x63')],f=document[b('0x65')]('xcomp')[b('0x63')],g=document[b('0x65')](b('0x62'))[b('0x63')],h=math[b('0x39')](d+0x1,0x3);d>0x0&&h[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,d),[0x0,0x1,0x2]),c);h['subset'](math['index'](d,[0x0,0x1,0x2]),[e,f,g]);forcelist=h;document[b('0x65')]('df')['innerHTML']='';document[b('0x65')]('ft')[b('0x70')]='';var j=document[b('0x65')]('ft'),k=j[b('0x4')](0x0),l=k[b('0x43')](0x0),m=k[b('0x43')](0x1),n=k[b('0x43')](0x2),o=k[b('0x43')](0x3);l[b('0x70')]='Force\x20#';m[b('0x70')]=b('0x85');n[b('0x70')]=b('0x71');o[b('0x70')]='Y\x20Component\x20(lbs)';for(var p=0x0;p<d+0x1;p++){var k=j[b('0x4')](p+0x1),l=k[b('0x43')](0x0),m=k[b('0x43')](0x1),n=k[b('0x43')](0x2),o=k[b('0x43')](0x3);l[b('0x70')]=p[b('0x7a')]();m[b('0x70')]=forcelist[b('0x22')](math['index'](p,0x0));n[b('0x70')]=forcelist[b('0x22')](math[b('0x4d')](p,0x1));o[b('0x70')]=forcelist[b('0x22')](math[b('0x4d')](p,0x2));}}function run(){var c=nodelist[b('0x3')]()[0x0],d=bclist[b('0x3')]()[0x0],e=forcelist[b('0x3')]()[0x0],f=elementlist[b('0x3')]()[0x0],g=cs[b('0x3')]()[0x0],h=mats[b('0x3')]()[0x0],k=math['zeros'](c,0x7);for(var l=0x0;l<c;l++){k[b('0x22')](math[b('0x4d')](l,0x0),l);k['subset'](math[b('0x4d')](l,0x1),parseInt(nodelist[b('0x22')](math['index'](l,0x0))));k[b('0x22')](math['index'](l,0x2),parseInt(nodelist[b('0x22')](math[b('0x4d')](l,0x1))));}for(var l=0x0;l<d;l++){bclist['subset'](math[b('0x4d')](l,0x1))=='Pin'&&k[b('0x22')](math[b('0x4d')](parseInt(bclist[b('0x22')](math[b('0x4d')](l,0x0))[b('0x47')](0x5)),[0x3,0x4]),[0x1,0x1]);bclist[b('0x22')](math[b('0x4d')](l,0x1))=='Horizontal\x20Roller'&&k['subset'](math[b('0x4d')](parseInt(bclist[b('0x22')](math[b('0x4d')](l,0x0))[b('0x47')](0x5)),[0x3,0x4]),[0x0,0x1]);bclist['subset'](math[b('0x4d')](l,0x1))==b('0x31')&&k[b('0x22')](math['index'](parseInt(bclist['subset'](math[b('0x4d')](l,0x0))[b('0x47')](0x5)),[0x3,0x4]),[0x1,0x0]);}for(var l=0x0;l<e;l++){var m=parseInt(forcelist['subset'](math[b('0x4d')](l,0x1)));isNaN(m)&&(m=0x0);var n=parseInt(forcelist[b('0x22')](math[b('0x4d')](l,0x2)));isNaN(n)&&(n=0x0);k[b('0x22')](math[b('0x4d')](parseInt(forcelist[b('0x22')](math[b('0x4d')](l,0x0))[b('0x47')](0x5)),[0x5,0x6]),[m,n]);}var o=math[b('0x39')](f,0x5);for(var l=0x0;l<f;l++){o[b('0x22')](math[b('0x4d')](l,0x0),l);var p=parseInt(elementlist[b('0x22')](math[b('0x4d')](l,0x0))[b('0x47')](0x5)),q=parseInt(elementlist[b('0x22')](math[b('0x4d')](l,0x1))[b('0x47')](0x5));o[b('0x22')](math[b('0x4d')](l,0x1),math[b('0x66')](p,q));o[b('0x22')](math[b('0x4d')](l,0x2),math['max'](p,q));var r=elementlist['subset'](math[b('0x4d')](l,0x2));for(var s=0x0;s<g;s++){r==cs[b('0x22')](math[b('0x4d')](s,0x0))&&o[b('0x22')](math['index'](l,0x3),parseInt(cs[b('0x22')](math['index'](s,0x1))));}var t=elementlist[b('0x22')](math[b('0x4d')](l,0x3));for(var s=0x0;s<h;s++){t==mats[b('0x22')](math[b('0x4d')](s,0x0))&&o[b('0x22')](math[b('0x4d')](l,0x4),parseInt(mats[b('0x22')](math[b('0x4d')](s,0x1))));}}console[b('0x2b')](o[b('0x7a')]());analize(k,o);}function analize(d,e){console[b('0x2b')](b('0x53')+e[b('0x7a')]());const f=parseInt(d[b('0x3')]());console[b('0x2b')](b('0x73')+f[b('0x7a')]());const g=parseInt(e[b('0x3')]());console['log'](b('0x6f')+g[b('0x7a')]());const j=parseInt(d[b('0x3')]())*0x2;console[b('0x2b')](b('0x2f')+j[b('0x7a')]());var l=d[b('0x22')](math[b('0x4d')](math['range'](0x0,f),0x1)),m=math[b('0x35')](l)-math[b('0x66')](l);console['log'](b('0x11')+l[b('0x7a')]());console[b('0x2b')](b('0x40')+m['toString']());var n=d[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,f),0x2)),o=math[b('0x35')](n)-math['min'](n);console[b('0x2b')]('Vector\x20of\x20Y\x20values\x20'+n[b('0x7a')]());console[b('0x2b')]('Y\x20range\x20'+o[b('0x7a')]());var p=document[b('0x65')](b('0x7e'))[b('0x58')]-0x34,q=document['getElementById'](b('0x7e'))['offsetHeight']-0x34;console[b('0x2b')](b('0x64')+p[b('0x7a')]());console[b('0x2b')](b('0x6b')+q[b('0x7a')]());var s=p/m,u=q/o,w=math[b('0x66')](s,u);console[b('0x2b')](b('0x7b')+w[b('0x7a')]());var x=(p-m*w)/0x2;console[b('0x2b')](b('0x3a')+x[b('0x7a')]());var y=(q-o*w)/0x2;console[b('0x2b')](b('0x37')+y[b('0x7a')]());for(var z=0x0;z<g;z++){const ar=e[b('0x22')](math[b('0x4d')](z,0x1)),as=e[b('0x22')](math[b('0x4d')](z,0x2)),at=d[b('0x22')](math[b('0x4d')](ar,0x1)),au=d['subset'](math['index'](as,0x1)),av=d[b('0x22')](math['index'](ar,0x2)),aw=d[b('0x22')](math['index'](as,0x2));var B=document['getElementById'](b('0x7e')),C=B[b('0x1f')]('2d');C[b('0x29')](at*w+0x1a+x,q+0x34-(av*w+0x1a+y));C[b('0x4f')](au*w+0x1a+x,q+0x34-(aw*w+0x1a+y));C[b('0xb')]=b('0x69');C[b('0x42')]=0x3;C[b('0x5')]();C[b('0x1e')]=b('0x19');C[b('0x2')]=b('0x69');C['fillText'](e['subset'](math[b('0x4d')](z,0x0))['toString'](),(at*w+0x1a+x+(au*w+0x1a+x))/0x2+0xa,(q+0x34-(av*w+0x1a+y)+(q+0x34-(aw*w+0x1a+y)))/0x2+0xa);}for(var z=0x0;z<f;z++){var B=document[b('0x65')](b('0x7e')),C=B['getContext']('2d');C[b('0x41')]();C[b('0x3b')](d[b('0x22')](math[b('0x4d')](z,0x1))*w+0x1a+x,q+0x34-(d['subset'](math['index'](z,0x2))*w+0x1a+y),0x4,0x0,0x2*math['pi']);C[b('0x2')]=b('0x55');C[b('0x27')]();C['strokeStyle']=b('0x55');C[b('0x5')]();C['font']=b('0x19');C[b('0x7f')](d['subset'](math[b('0x4d')](z,0x0))[b('0x7a')](),d[b('0x22')](math['index'](z,0x1))*w+0x1a+x+0xa,q+0x34-(d[b('0x22')](math[b('0x4d')](z,0x2))*w+0x1a+y)+0xa);d[b('0x22')](math['index'](z,0x3))==0x1&&d['subset'](math[b('0x4d')](z,0x4))==0x1&&(console['log'](b('0x33')+z),C[b('0x41')](),C[b('0x42')]=0x1,C[b('0x29')](d[b('0x22')](math[b('0x4d')](z,0x1))*w+0x1a+x,q+0x34-(d[b('0x22')](math[b('0x4d')](z,0x2))*w+0x1a+y)+0x4),C[b('0x4f')](d['subset'](math[b('0x4d')](z,0x1))*w+0x1a+x+0x6,q+0x34-(d[b('0x22')](math[b('0x4d')](z,0x2))*w+0x1a+y)+0xc),C[b('0x4f')](d['subset'](math[b('0x4d')](z,0x1))*w+0x1a+x-0x6,q+0x34-(d[b('0x22')](math['index'](z,0x2))*w+0x1a+y)+0xc),C['lineTo'](d[b('0x22')](math['index'](z,0x1))*w+0x1a+x,q+0x34-(d[b('0x22')](math[b('0x4d')](z,0x2))*w+0x1a+y)+0x4),C[b('0xb')]=b('0x55'),C[b('0x5')]());d[b('0x22')](math[b('0x4d')](z,0x3))==0x0&&d['subset'](math['index'](z,0x4))==0x1&&(console[b('0x2b')](b('0x50')+z),C[b('0x41')](),C[b('0x42')]=0x1,C['arc'](d[b('0x22')](math[b('0x4d')](z,0x1))*w+0x1a+x-0x4,q+0x34-(d['subset'](math[b('0x4d')](z,0x2))*w+0x1a+y)+0x8,0x4,0x0,0x2*math['pi']),C[b('0xb')]=b('0x55'),C[b('0x5')](),C[b('0x41')](),C[b('0x3b')](d[b('0x22')](math[b('0x4d')](z,0x1))*w+0x1a+x+0x4,q+0x34-(d[b('0x22')](math[b('0x4d')](z,0x2))*w+0x1a+y)+0x8,0x4,0x0,0x2*math['pi']),C[b('0x5')]());d[b('0x22')](math['index'](z,0x3))==0x1&&d['subset'](math[b('0x4d')](z,0x4))==0x0&&(console[b('0x2b')]('Vertical\x20Roller\x20BC\x20@\x20node\x20'+z),C[b('0x41')](),C[b('0x42')]=0x1,C[b('0x3b')](d[b('0x22')](math[b('0x4d')](z,0x1))*w+0x1a+x-0x8,q+0x34-(d[b('0x22')](math[b('0x4d')](z,0x2))*w+0x1a+y)+0x4,0x4,0x0,0x2*math['pi']),C[b('0xb')]=b('0x55'),C['stroke'](),C[b('0x41')](),C[b('0x3b')](d[b('0x22')](math['index'](z,0x1))*w+0x1a+x-0x8,q+0x34-(d[b('0x22')](math[b('0x4d')](z,0x2))*w+0x1a+y)-0x4,0x4,0x0,0x2*math['pi']),C[b('0x5')]());}const D=math[b('0x39')](0x4,0x4*g);var z;for(var z=0x0;z<g;z++){const ax=z*0x4,ay=e[b('0x22')](math[b('0x4d')](z,0x1)),az=e[b('0x22')](math[b('0x4d')](z,0x2)),aA=e['subset'](math['index'](z,0x3)),aB=e[b('0x22')](math[b('0x4d')](z,0x4)),aC=d[b('0x22')](math[b('0x4d')](ay,0x1)),aD=d[b('0x22')](math['index'](az,0x1)),aE=d[b('0x22')](math[b('0x4d')](ay,0x2)),aF=d[b('0x22')](math[b('0x4d')](az,0x2)),aG=math[b('0x68')]((aD-aC)**0x2+(aF-aE)**0x2);D['subset'](math[b('0x4d')](0x0,ax),aA*aB/aG);D[b('0x22')](math[b('0x4d')](0x0,0x2+ax),-aA*aB/aG);D[b('0x22')](math['index'](0x2,0x2+ax),aA*aB/aG);D[b('0x22')](math[b('0x4d')](0x2,ax),-aA*aB/aG);}console['log']('ECS\x20'+D[b('0x7a')]());const F=math[b('0x39')](0x4,0x4*g);var z;for(var z=0x0;z<g;z++){const aH=z*0x4,aI=e[b('0x22')](math[b('0x4d')](z,0x1)),aJ=e[b('0x22')](math[b('0x4d')](z,0x2)),aK=d[b('0x22')](math['index'](aI,0x1)),aL=d[b('0x22')](math[b('0x4d')](aJ,0x1)),aM=d[b('0x22')](math[b('0x4d')](aI,0x2)),aN=d[b('0x22')](math[b('0x4d')](aJ,0x2)),aO=aN-aM,aP=aL-aK;var G=math['atan'](aO/aP);aP<0x0&&(G=G+math['pi']);F[b('0x22')](math[b('0x4d')](0x0,aH),math['cos'](G));F[b('0x22')](math[b('0x4d')](0x1,0x1+aH),math[b('0x30')](G));F[b('0x22')](math[b('0x4d')](0x2,0x2+aH),math[b('0x30')](G));F[b('0x22')](math[b('0x4d')](0x3,0x3+aH),math[b('0x30')](G));F['subset'](math['index'](0x0,0x1+aH),-math[b('0x44')](G));F[b('0x22')](math['index'](0x1,aH),math[b('0x44')](G));F[b('0x22')](math[b('0x4d')](0x2,0x3+aH),-math[b('0x44')](G));F[b('0x22')](math[b('0x4d')](0x3,0x2+aH),math['sin'](G));}console[b('0x2b')]('Rotation\x20'+F[b('0x7a')]());const H=math[b('0x39')](0x4,0x4*g);var z;for(var z=0x0;z<g;z++){const aQ=z*0x4;var I=F[b('0x22')](math[b('0x4d')]([0x0,0x1,0x2,0x3],[aQ,aQ+0x1,aQ+0x2,aQ+0x3])),J=D[b('0x22')](math[b('0x4d')]([0x0,0x1,0x2,0x3],[aQ,aQ+0x1,aQ+0x2,aQ+0x3]));const aR=math[b('0x5a')](math[b('0x5a')](I,J),math['transpose'](I));H[b('0x22')](math['index']([0x0,0x1,0x2,0x3],[aQ,aQ+0x1,aQ+0x2,aQ+0x3]),aR);}console[b('0x2b')](b('0x51')+H[b('0x7a')]());const K=math[b('0x39')](j,j*g);var z;for(var z=0x0;z<g;z++){const aS=z*0x4,aT=z*j,aU=e['subset'](math[b('0x4d')](z,0x1)),aV=e[b('0x22')](math['index'](z,0x2)),aW=aU*0x2,aX=aU*0x2+0x1,aY=aV*0x2,aZ=aV*0x2+0x1,b0=math[b('0x39')](j,j);var M=H[b('0x22')](math[b('0x4d')]([0x0,0x1],[aS,aS+0x1]));b0[b('0x22')](math[b('0x4d')]([aW,aX],[aW,aX]),M);var N=H[b('0x22')](math[b('0x4d')]([0x0,0x1],[aS+0x2,aS+0x3]));b0[b('0x22')](math[b('0x4d')]([aW,aX],[aY,aZ]),N);var O=H[b('0x22')](math['index']([0x2,0x3],[aS,aS+0x1]));b0[b('0x22')](math[b('0x4d')]([aY,aZ],[aW,aX]),O);var P=H['subset'](math[b('0x4d')]([0x2,0x3],[aS+0x2,aS+0x3]));b0['subset'](math[b('0x4d')]([aY,aZ],[aY,aZ]),P);console[b('0x2b')](b('0x8')+b0[b('0x7a')]());K['subset'](math[b('0x4d')](math[b('0x10')](0x0,j),math[b('0x10')](aT,aT+j)),b0);}console['log']('Kgm\x20'+K[b('0x7a')]());var Q=math[b('0x39')](j,j),z;for(var z=0x0;z<g;z++){const b1=z*j;Q=math['add'](Q,K['subset'](math['index'](math[b('0x10')](0x0,j),math[b('0x10')](b1,b1+j))));}console['log']('Kg\x20'+Q[b('0x7a')]());var R=math[b('0x39')](j,0x1),z;for(var z=0x0;z<f;z++){var S=d[b('0x22')](math['index'](z,0x5)),T=d['subset'](math[b('0x4d')](z,0x6));R['subset'](math[b('0x4d')](z*0x2,0x0),S);R['subset'](math[b('0x4d')](z*0x2+0x1,0x0),T);}console[b('0x2b')]('f\x20initial\x20'+R[b('0x7a')]());var z,U=[];for(var z=0x0;z<f;z++){var V=d['subset'](math[b('0x4d')](z,[0x0,0x3])),W=d[b('0x22')](math[b('0x4d')](z,[0x0,0x4]));V[b('0x22')](math[b('0x4d')](0x0,0x1))==0x0&&U[b('0xf')](V[b('0x22')](math[b('0x4d')](0x0,0x0))*0x2);W['subset'](math[b('0x4d')](0x0,0x1))==0x0&&U[b('0xf')](W[b('0x22')](math[b('0x4d')](0x0,0x0))*0x2+0x1);}console['log'](b('0x6e')+U);var X=Q['subset'](math[b('0x4d')](U,U));console[b('0x2b')]('Ka\x20'+X[b('0x7a')]());var Y=R[b('0x22')](math[b('0x4d')](U,0x0));console[b('0x2b')](b('0x3d')+Y[b('0x7a')]());var Z=math[b('0x4c')](X);console[b('0x2b')](b('0xe')+Z[b('0x7a')]());var a0=math[b('0x5a')](Z,Y);console[b('0x2b')](b('0x6d')+a0['toString']());var a1=math[b('0x39')](j,0x1);a1[b('0x22')](math[b('0x4d')](U,0x0),a0);console['log'](b('0x3f')+math[b('0x2c')](a1,{'notation':'fixed','precision':0x4})['toString']());var a2=math[b('0x5a')](Q,a1);console[b('0x2b')](b('0x72')+math[b('0x2c')](a2,{'notation':b('0x1b'),'precision':0x4})['toString']());const a3=math[b('0x39')](0x4,g);var z;for(var z=0x0;z<g;z++){var a4=e[b('0x22')](math[b('0x4d')](z,0x1)),a5=e[b('0x22')](math['index'](z,0x2)),a6=math[b('0x39')](0x4,0x1);a6['subset'](math[b('0x4d')]([0x0,0x1],0x0),a1['subset'](math[b('0x4d')]([a4*0x2,a4*0x2+0x1],0x0)));a6[b('0x22')](math['index']([0x2,0x3],0x0),a1['subset'](math[b('0x4d')]([a5*0x2,a5*0x2+0x1],0x0)));const b2=z*0x4;var I=F[b('0x22')](math[b('0x4d')]([0x0,0x1,0x2,0x3],[b2,b2+0x1,b2+0x2,b2+0x3])),J=D[b('0x22')](math[b('0x4d')]([0x0,0x1,0x2,0x3],[b2,b2+0x1,b2+0x2,b2+0x3]));const b3=math[b('0x5a')](math[b('0x5a')](J,math[b('0x2e')](I)),a6);a3[b('0x22')](math[b('0x4d')]([0x0,0x1,0x2,0x3],z),b3);}console[b('0x2b')](b('0x46')+math[b('0x2c')](a3,{'notation':'fixed','precision':0x4})[b('0x7a')]());var l=d['subset'](math[b('0x4d')](math[b('0x10')](0x0,f),0x1)),a7=math[b('0x1c')](d[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,f),0x1)),a1[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,f*0x2,0x2),0x0))),a8=math[b('0x35')](math['max'](l),math[b('0x35')](a7))-math[b('0x66')](math[b('0x66')](l),math[b('0x66')](a7));console[b('0x2b')](b('0x11')+a7[b('0x7a')]());console[b('0x2b')](b('0x40')+a8[b('0x7a')]());var n=d['subset'](math[b('0x4d')](math[b('0x10')](0x0,f),0x2)),a9=math[b('0x1c')](d[b('0x22')](math[b('0x4d')](math[b('0x10')](0x0,f),0x2)),a1[b('0x22')](math[b('0x4d')](math[b('0x10')](0x1,f*0x2,0x2),0x0))),aa=math[b('0x35')](math['max'](n),math[b('0x35')](a9))-math[b('0x66')](math[b('0x66')](n),math['min'](a9));console[b('0x2b')]('Vector\x20of\x20Y\x20values\x20'+a9[b('0x7a')]());console[b('0x2b')](b('0x54')+aa[b('0x7a')]());var ab=document[b('0x65')]('dc')[b('0x58')]-0x34,ac=document[b('0x65')]('dc')[b('0x1')]-0x34;console[b('0x2b')](b('0x64')+ab['toString']());console[b('0x2b')](b('0x6b')+ac[b('0x7a')]());var ad=ab/a8,ae=ac/aa,af=math['min'](ad,ae);console['log'](b('0x7b')+af[b('0x7a')]());var ag=(ab-a8*af)/0x2;console['log']('X\x20offset\x20'+ag[b('0x7a')]());var ah=(ac-aa*af)/0x2;console[b('0x2b')](b('0x37')+ah[b('0x7a')]());var ai=math['abs'](math[b('0x66')](math[b('0x66')](l),math['min'](a7),0x0))*af;console[b('0x2b')](b('0x48')+ai['toString']());var aj=math[b('0x20')](math[b('0x66')](math[b('0x66')](n),math[b('0x66')](a9),0x0))*af;console[b('0x2b')](b('0x13')+aj[b('0x7a')]());for(var z=0x0;z<g;z++){const b4=e[b('0x22')](math['index'](z,0x1)),b5=e[b('0x22')](math[b('0x4d')](z,0x2)),b6=d['subset'](math[b('0x4d')](b4,0x1)),b7=d[b('0x22')](math[b('0x4d')](b5,0x1)),b8=d[b('0x22')](math[b('0x4d')](b4,0x2)),b9=d[b('0x22')](math[b('0x4d')](b5,0x2));var B=document[b('0x65')]('dc'),C=B['getContext']('2d');C[b('0x41')]();C[b('0x29')](b6*af+0x1a+ag+ai,ac+0x34-(b8*af+0x1a+ah+aj));C[b('0x4f')](b7*af+0x1a+ag+ai,ac+0x34-(b9*af+0x1a+ah+aj));C['strokeStyle']=b('0x9');C[b('0x42')]=0x1;C[b('0x5')]();}for(var z=0x0;z<g;z++){const ba=e[b('0x22')](math['index'](z,0x1)),bb=e[b('0x22')](math[b('0x4d')](z,0x2)),bc=d[b('0x22')](math[b('0x4d')](ba,0x1)),bd=d[b('0x22')](math[b('0x4d')](bb,0x1)),be=d[b('0x22')](math[b('0x4d')](ba,0x2)),bf=d[b('0x22')](math['index'](bb,0x2));var ak=a1[b('0x22')](math[b('0x4d')](0x2*ba,0x0)),al=a1[b('0x22')](math['index'](0x2*bb,0x0)),am=a1[b('0x22')](math['index'](0x2*ba+0x1,0x0)),an=a1['subset'](math[b('0x4d')](0x2*bb+0x1,0x0)),B=document[b('0x65')]('dc'),C=B[b('0x1f')]('2d');C['beginPath']();C[b('0x29')]((bc+ak)*af+0x1a+ag+ai,ac+0x34-((be+am)*af+0x1a+ah+aj));C[b('0x4f')]((bd+al)*af+0x1a+ag+ai,ac+0x34-((bf+an)*af+0x1a+ah+aj));C['strokeStyle']=b('0x3c');C[b('0x42')]=0x2;C[b('0x5')]();}var ao=document[b('0x65')]('dt');for(var z=0x0;z<parseInt(a1[b('0x3')]);z++){var I=ao[b('0x4')](z),ap=I[b('0x43')](0x0);ap[b('0x70')]=z;var aq=I['insertCell'](0x1);aq[b('0x70')]=math[b('0x2c')](a1[b('0x22')](math['index'](z,0x0)),{'notation':'fixed','precision':0x4})['toString']();}dispTable(j,a1);reactTable(j,d,a2);elementForcesTable(g,a3);}function dispTable(c,d){var e=document[b('0x65')]('dt'),f=e[b('0x4')](0x0),g=f['insertCell'](0x0),h=f[b('0x43')](0x1),j=f[b('0x43')](0x2);g['innerHTML']=b('0x1d');h['innerHTML']=b('0x45');j['innerHTML']=b('0x25');for(var k=0x0;k<c/0x2;k++){var f=e[b('0x4')](k+0x1),g=f[b('0x43')](0x0),h=f[b('0x43')](0x1),j=f[b('0x43')](0x2);g[b('0x70')]=k[b('0x7a')]();h[b('0x70')]=math['format'](d[b('0x22')](math[b('0x4d')](0x2*k,0x0)),{'notation':b('0x1b'),'precision':0x4})[b('0x7a')]();j[b('0x70')]=math[b('0x2c')](d[b('0x22')](math[b('0x4d')](0x2*k+0x1,0x0)),{'notation':b('0x1b'),'precision':0x4})['toString']();}}function reactTable(c,d,e){var f=document[b('0x65')]('re'),g=f[b('0x4')](0x0),h=g['insertCell'](0x0),k=g[b('0x43')](0x1),l=g[b('0x43')](0x2);h[b('0x70')]=b('0x1d');k['innerHTML']=b('0x57');l['innerHTML']=b('0x79');var m=0x1;for(var n=0x0;n<c/0x2;n++){if(d[b('0x22')](math[b('0x4d')](n,0x3))==0x1||d[b('0x22')](math['index'](n,0x4))==0x1){var g=f[b('0x4')](m),h=g[b('0x43')](0x0),k=g[b('0x43')](0x1),l=g[b('0x43')](0x2);h[b('0x70')]=n[b('0x7a')](),k[b('0x70')]=math[b('0x2c')](e[b('0x22')](math['index'](0x2*n,0x0)),{'notation':b('0x1b'),'precision':0x4})[b('0x7a')](),l[b('0x70')]=math[b('0x2c')](e['subset'](math[b('0x4d')](0x2*n+0x1,0x0)),{'notation':b('0x1b'),'precision':0x4})[b('0x7a')](),m++;}}}function elementForcesTable(c,d){var e=document['getElementById']('ef'),f=e[b('0x4')](0x0),g=f['insertCell'](0x0),h=f[b('0x43')](0x1),j=f[b('0x43')](0x2);g[b('0x70')]=b('0x52');h[b('0x70')]=b('0x5c');j[b('0x70')]=b('0x77');for(var k=0x0;k<c;k++){var f=e[b('0x4')](k+0x1),g=f[b('0x43')](0x0),h=f[b('0x43')](0x1),j=f[b('0x43')](0x2);g['innerHTML']=k['toString']();h[b('0x70')]=math[b('0x20')](math[b('0x2c')](d[b('0x22')](math[b('0x4d')](0x2,k)),{'notation':b('0x1b'),'precision':0x4}))['toString']();var l='';math[b('0x2c')](d[b('0x22')](math[b('0x4d')](0x2,k)),{'notation':b('0x1b'),'precision':0x4})>0x0&&(l=b('0x7c'));math[b('0x2c')](d[b('0x22')](math[b('0x4d')](0x2,k)),{'notation':b('0x1b'),'precision':0x4})<0x0&&(l=b('0x59'));math[b('0x2c')](d[b('0x22')](math[b('0x4d')](0x2,k)),{'notation':b('0x1b'),'precision':0x4})==0x0&&(l=b('0x49'));j[b('0x70')]=l;}}
+    </script>  
   </head>
   <body>
     <div class="hc">
@@ -38,24 +41,24 @@
           <div class="menubody">
             <br><a href="home.html">Home</a><br>
             <br><a href="sb.html">Steel Bridge Project</a><br>
-            <br><a href="fea.html">FEA Project (WIP)</a><br>
+            <br><a href="fea.html">FEA Truss Solver</a><br>
           </div>
         </div>
       </div>
     </div>
     <div class="spacer"></div>
     <div class="bod">
-      <div class="spacer"></div>
+      <!---<div class="spacer"></div>
       <div class="cont" style="color:red;">
         <center>
           <p>**This Project is a Work In Progress**</p>
         </center>
       </div>
-      <div class="sh2"></div>
+      <div class="sh2"></div>--->
       <div class="spacer"></div>
       <div class="cont">
         <center>
-          <p><b>Finite Element Analysis Tool for Truss Structures</b></p>
+          <p style="font-size:24px"><b>Structural Finite Element Analysis Solver for Truss Structures</b></p>
           <p>© Michael Desch (2020)</p>
         </center>
       </div>
@@ -64,9 +67,9 @@
       <div class="cont">
         <p>
           Finite Emement Procedure<br><br>
-          1.) Define Nodes<br>
-          2.) Define Materials<br>
-          3.) Define Cross sections<br>
+          1.) Define Materials<br>
+          2.) Define Cross sections<br>
+          3.) Define Nodes<br>
           4.) Define Elements<br>
           5.) Define Bounrady Conditions<br>
           6.) Define Forces<br>
@@ -76,7 +79,73 @@
       <div class="spacer"></div>
       <div class="cont">
         <center>
-          <p>**User Structure Input Goes Here**</p>
+          <table id="mt" style="border:1px solid #000000;"></table>
+          <button onclick="newmat()">Define a new Material</button>
+          <div id='dmat'></div>
+          <p style="font-size:11px;color:grey;">*Don't name multiple materials the same thing</p>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
+          <table id="cst" style="border:1px solid #000000;"></table>
+          <button onclick="newcs()">Define a new Cross Section</button>
+          <div id='dcs'></div>
+          <p style="font-size:11px;color:grey;">*Don't name multiple sections the same thing</p>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
+          <table id="nodet" style="border:1px solid #000000;"></table>
+          <button onclick="newnode()">Define a new Node</button>
+          <div id='dnode'></div>
+          <p style="font-size:11px;color:grey;">*Reccomended to assign (0,0) as the lower-leftmost point of the structure</p>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
+          <table id="elementt" style="border:1px solid #000000;"></table>
+          <button onclick="newelement()">Define a new Element</button>
+          <div id='delement'></div>
+          <p style="font-size:11px;color:grey;">*Don't choose the same node at both the start and end of the element</p>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
+          <table id="bct" style="border:1px solid #000000;"></table>
+          <button onclick="newbc()">Define a new Boundary Condition</button>
+          <div id='dbc'></div>
+          <p style="font-size:11px;color:grey;">*Only assign one boundary condition per node, or it will only consider the last b.c. applied</p>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
+          <table id="ft" style="border:1px solid #000000;"></table>
+          <button onclick="newf()">Define a new Force</button>
+          <div id='df'></div>
+          <p style="font-size:11px;color:grey;">*Only apply one (x,y) force pair per node, or it will only consider the last force pair assigned</p>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
+          <button onclick="run()">Analyze the Structure</button>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
           <p>Undeformed Configuration</p>
           <canvas id="udc" width="600" height="350" style="border:1px solid #000000;"></canvas>
         </center>
@@ -87,10 +156,28 @@
         <center>
           <p>Deformed Configuration</p>
           <canvas id="dc" width="600" height="350" style="border:1px solid #000000;"></canvas>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
           <p>Nodal Displacements</p>
           <table id="dt" style="border:1px solid #000000;"></table>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
           <p>Reactions</p>
           <table id="re" style="border:1px solid #000000;"></table>
+        </center>
+      </div>
+      <div class="sh2"></div>
+      <div class="spacer"></div>
+      <div class="cont">
+        <center>
           <p>Element Forces</p>
           <table id="ef" style="border:1px solid #000000;"></table>
         </center>
@@ -98,506 +185,5 @@
       <div class="sh2"></div>
       <div class="spacer"></div>
     </div>
-    <script type="text/javascript">
-    
-    //Nodal Matrix
-    //const nodes = math.matrix([[0, 0, 0, 0, 1, 0, 0],[1, 1, 0, 0, 0, 0, 0], [2, 0.5, math.sqrt(3)/2, 0, 0, 0, 100], [3, 1.5, math.sqrt(3)/2, 0, 0, 0, 100], [4, 2, 0, 0, 0, 0, 0], [5, 3, 0, 1, 1, 0, 0], [6, 2.5, math.sqrt(3)/2, 0, 0, 0, 100], [7, 1.5, 0, 0, 0, 0, 0]])
-    
-    const nodes = math.matrix([[0,0,0,1,1,0,0],[1,1,0,1,1,0,0],[2,2,0,1,1,0,0],[3,3,0,1,1,0,0],[4,0,1,0,0,10,0],[5,1,1,0,0,0,0],[6,2,1,0,0,0,0],[7,3,1,0,0,0,0],[8,0,2,0,0,10,0],[9,1,2,0,0,0,0],[10,2,2,0,0,0,0],[11,3,2,0,0,0,0],[12,0,3,0,0,10,0],[13,1,3,0,0,0,0],[14,2,3,0,0,0,0],[15,3,3,0,0,0,0],[16,0,4,0,0,10,0],[17,1,4,0,0,0,0],[18,2,4,0,0,0,0],[19,3,4,0,0,0,0],])
-    
-    //const nodes = math.matrix([[0,0,0,1,1,0,0],[1,120,0,0,0,0,0],[2,240,0,0,1,0,0],[3,120,48,0,0,50,-1000000]])
-    
-    console.log("Nodal Matrix "+nodes.toString())
-    
-    //Element Matrix
-    //const elements = math.matrix([[0, 0, 2, 1, 1000],[1, 0, 1, 1, 1000],[2, 1, 2, 1, 1000],[3,2,3,1,1000],[4,1,3,1,1000],[5,1,7,1,1000],[6,3,4,1,1000],[7,3,6,1,1000],[8,4,6,1,1000],[9,4,5,1,1000],[10,5,6,1,1000],[11,4,7,1,1000],[12,3,7,1,1000]])
-    
-    const elements = math.matrix([[0,0,4,1,1000],[1,1,5,1,1000],[2,2,6,1,1000],[3,3,7,1,1000],[4,4,5,1,1000],[5,5,6,1,1000],[6,6,7,1,1000],[7,4,8,1,1000],[8,5,9,1,1000],[9,6,10,1,1000],[10,7,11,1,1000],[11,8,9,1,1000],[12,9,10,1,1000],[13,10,11,1,1000],[14,8,12,1,1000],[15,9,13,1,1000],[16,10,14,1,1000],[17,11,15,1,1000],[18,12,13,1,1000],[19,13,14,1,1000],[20,14,15,1,1000],[21,12,16,1,1000],[22,13,17,1,1000],[23,14,18,1,1000],[24,15,19,1,1000],[25,16,17,1,1000],[26,17,18,1,1000],[27,18,19,1,1000],[28,1,6,1,1000],[29,2,5,1,1000],[30,5,10,1,1000],[31,6,9,1,1000],[32,9,14,1,1000],[33,10,13,1,1000],[34,13,18,1,1000],[35,14,17,1,1000]])
-    
-    //const elements = math.matrix([[0,0,4,1,1000],[1,1,5,1,1000],[2,2,6,1,1000],[3,3,7,1,1000],[4,4,5,1,1000],[5,5,6,1,1000],[6,6,7,1,1000],[7,4,8,1,1000],[8,5,9,1,1000],[9,6,10,1,1000],[10,7,11,1,1000],[11,8,9,1,1000],[12,9,10,1,1000],[13,10,11,1,1000],[14,8,12,1,1000],[15,9,13,1,1000],[16,10,14,1,1000],[17,11,15,1,1000],[18,12,13,1,1000],[19,13,14,1,1000],[20,14,15,1,1000],[21,12,16,1,1000],[22,13,17,1,1000],[23,14,18,1,1000],[24,15,19,1,1000],[25,16,17,1,1000],[26,17,18,1,1000],[27,18,19,1,1000],[28,1,6,1,1000],[29,2,5,1,1000],[30,5,10,1,1000],[31,6,9,1,1000],[32,9,14,1,1000],[33,10,13,1,1000],[34,13,18,1,1000],[35,14,17,1,1000],[36,0,5,1,1000],[37,1,4,1,1000],[38,4,9,1,1000],[39,5,8,1,1000],[40,8,13,1,1000],[41,9,12,1,1000],[42,12,17,1,1000],[43,13,16,1,1000],[44,2,7,1,1000],[45,3,6,1,1000],[46,6,11,1,1000],[47,7,10,1,1000],[48,10,15,1,1000],[49,11,14,1,1000],[50,14,19,1,1000],[51,15,18,1,1000]])
-    
-    //const elements = math.matrix([[0,0,1,10,29000000],[1,1,2,10,29000000],[2,0,3,10,29000000],[3,1,3,10,29000000],[4,2,3,10,29000000]])
-    
-    console.log("Element Matrix "+elements.toString())
-    
-    //Find number of nodes
-    const nonum = parseInt(nodes.size())
-    console.log("Number of nodes "+nonum.toString())
-    
-    //Find number of elements
-    const elnum = parseInt(elements.size())
-    console.log("Number of elements "+elnum.toString())
-    
-    //Find number of dof's
-    const dofnum = parseInt(nodes.size())*2
-    console.log("Number of dofs "+dofnum.toString())
-    
-    //Generating Undeformed Configuration Figure
-    //Calculate Scaling Factor
-    var xes = nodes.subset(math.index(math.range(0,nonum),1))
-    var xrange = math.max(xes)-math.min(xes)
-    console.log("Vector of X values "+xes.toString())
-    console.log("X range "+xrange.toString())
-    
-    var yes = nodes.subset(math.index(math.range(0,nonum),2))
-    var yrange = math.max(yes)-math.min(yes)
-    console.log("Vector of Y values "+yes.toString())
-    console.log("Y range "+yrange.toString())
-    
-    var udcwidth = document.getElementById('udc').offsetWidth-52
-    var udcheight = document.getElementById('udc').offsetHeight-52
-    console.log("Canvas Width "+udcwidth.toString())
-    console.log("Canvas Height "+udcheight.toString())
-    
-    var xratio = udcwidth/xrange
-    var yratio = udcheight/yrange
-    var sf = math.min(xratio, yratio)
-    console.log("Scaling factor "+sf.toString())
-    
-    var xoffset = (udcwidth-xrange*sf)/2
-    console.log("X offset "+xoffset.toString())
-    
-    var yoffset = (udcheight-yrange*sf)/2
-    console.log("Y offset "+yoffset.toString())
-    
-    
-    
-    for (var i=0; i<elnum; i++)
-    {
-      const node1 = elements.subset(math.index(i,1))
-      const node2 = elements.subset(math.index(i,2))
-      const x1 = nodes.subset(math.index(node1,1))
-      const x2 = nodes.subset(math.index(node2,1))
-      const y1 = nodes.subset(math.index(node1,2))
-      const y2 = nodes.subset(math.index(node2,2))
-      var c = document.getElementById("udc");
-      var ctx = c.getContext("2d");
-      ctx.moveTo(x1*sf+26+xoffset, (udcheight+52)-(y1*sf+26+yoffset));
-      ctx.lineTo(x2*sf+26+xoffset, (udcheight+52)-(y2*sf+26+yoffset));
-      ctx.strokeStyle = '#ff0000'
-      ctx.lineWidth = 3;
-      ctx.stroke()
-      ctx.font = "12px Arial";
-      ctx.fillStyle = '#ff0000'
-      ctx.fillText(elements.subset(math.index(i,0)).toString(), (((x1*sf+26+xoffset)+(x2*sf+26+xoffset))/2)+10, ((((udcheight+52)-(y1*sf+26+yoffset))+((udcheight+52)-(y2*sf+26+yoffset)))/2)+10)
-    }
-    
-    for (var i=0; i<nonum; i++)
-    {
-      var c = document.getElementById("udc");
-      var ctx = c.getContext("2d");
-      ctx.beginPath();
-      ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset), (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset), 4, 0, 2*math.pi);
-      ctx.fillStyle = '#000000'
-      ctx.fill()
-      ctx.strokeStyle = '#000000'
-      ctx.stroke()
-      
-      ctx.font = "12px Arial";
-      ctx.fillText(nodes.subset(math.index(i,0)).toString(), (nodes.subset(math.index(i,1))*sf+26+xoffset)+10, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+10);
-      
-      if (nodes.subset(math.index(i,3))==1 && nodes.subset(math.index(i,4))==1)
-      {
-        console.log("Pin BC @ node "+i)
-        ctx.beginPath()
-        ctx.lineWidth = 1;
-        ctx.moveTo((nodes.subset(math.index(i,1))*sf+26+xoffset), (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+4)
-        ctx.lineTo((nodes.subset(math.index(i,1))*sf+26+xoffset)+6, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+12)
-        ctx.lineTo((nodes.subset(math.index(i,1))*sf+26+xoffset)-6, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+12)
-        ctx.lineTo((nodes.subset(math.index(i,1))*sf+26+xoffset), (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+4)
-        ctx.strokeStyle = '#000000'
-        ctx.stroke()
-        
-      }
-      if (nodes.subset(math.index(i,3))==0 && nodes.subset(math.index(i,4))==1)
-      {
-        console.log("Horizontal Roller BC @ node "+i)
-        ctx.beginPath();
-        ctx.lineWidth = 1;
-        ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset)-4, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+8, 4, 0, 2*math.pi);
-        ctx.strokeStyle = '#000000'
-        ctx.stroke()
-        ctx.beginPath();
-        ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset)+4, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+8, 4, 0, 2*math.pi);
-        ctx.stroke()
-        
-      }
-      if (nodes.subset(math.index(i,3))==1 && nodes.subset(math.index(i,4))==0)
-      {
-        console.log("Vertical Roller BC @ node "+i)
-        ctx.beginPath();
-        ctx.lineWidth = 1;
-        ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset)-8, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)+4, 4, 0, 2*math.pi);
-        ctx.strokeStyle = '#000000'
-        ctx.stroke()
-        ctx.beginPath()
-        ctx.arc((nodes.subset(math.index(i,1))*sf+26+xoffset)-8, (udcheight+52)-(nodes.subset(math.index(i,2))*sf+26+yoffset)-4, 4, 0, 2*math.pi);
-        ctx.stroke()
-      }
-    }
-    
-    //Combined element stiffness matrices element coordinate system
-    const kecs = math.zeros(4,4*elnum)
-    var i;
-    for (var i=0; i<elnum; i++)
-    {
-      const a = i*4
-      const node1 = elements.subset(math.index(i,1))
-      const node2 = elements.subset(math.index(i,2))
-      const A = elements.subset(math.index(i,3))
-      const E = elements.subset(math.index(i,4))
-      const x1 = nodes.subset(math.index(node1,1))
-      const x2 = nodes.subset(math.index(node2,1))
-      const y1 = nodes.subset(math.index(node1,2))
-      const y2 = nodes.subset(math.index(node2,2))
-      const L = math.sqrt(((x2-x1)**2)+((y2-y1)**2))
-      
-      kecs.subset(math.index(0,a),A*E/L)
-      kecs.subset(math.index(0,2+a),-A*E/L)
-      kecs.subset(math.index(2,2+a),A*E/L)
-      kecs.subset(math.index(2,a),-A*E/L)
-    }
-    console.log("ECS "+kecs.toString())
-    
-    //Combined rotation matrices
-    const rot = math.zeros(4,4*elnum)
-    var i;
-    for (var i=0; i<elnum; i++)
-    {
-      const a = i*4
-      const node1 = elements.subset(math.index(i,1))
-      const node2 = elements.subset(math.index(i,2))
-      const x1 = nodes.subset(math.index(node1,1))
-      const x2 = nodes.subset(math.index(node2,1))
-      const y1 = nodes.subset(math.index(node1,2))
-      const y2 = nodes.subset(math.index(node2,2))
-      const v = y2-y1
-      const h = x2-x1
-      var alpha = math.atan(v/h)
-      if (h<0)
-      {
-        alpha = alpha + math.pi
-      }
-      rot.subset(math.index(0,a),math.cos(alpha))
-      rot.subset(math.index(1,1+a),math.cos(alpha))
-      rot.subset(math.index(2,2+a),math.cos(alpha))
-      rot.subset(math.index(3,3+a),math.cos(alpha))
-      rot.subset(math.index(0,1+a),-math.sin(alpha))
-      rot.subset(math.index(1,a),math.sin(alpha))
-      rot.subset(math.index(2,3+a),-math.sin(alpha))
-      rot.subset(math.index(3,2+a),math.sin(alpha))
-    }
-    console.log("Rotation "+rot.toString())
-    
-    //Combined element stiffness matrices global coordinate system
-    const kgcs = math.zeros(4,4*elnum)
-    var i;
-    for (var i=0; i<elnum; i++)
-    {
-      const a = i*4
-      var r = rot.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]))
-      var k = kecs.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]))
-      const ki = math.multiply(math.multiply(r,k),math.transpose(r))
-      kgcs.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]),ki)
-    }
-    console.log("kgcs "+kgcs.toString())
-    
-    //Combined global stiffness matrix components by element
-    const Kgm = math.zeros(dofnum,dofnum*elnum)
-    var i;
-    for (var i=0; i<elnum; i++)
-    {
-      const a = i*4
-      const b = i*dofnum
-      const node1 = elements.subset(math.index(i,1))
-      const node2 = elements.subset(math.index(i,2))
-      const dof0 = node1*2
-      const dof1 = node1*2+1
-      const dof2 = node2*2
-      const dof3 = node2*2+1
-      const Kgi = math.zeros(dofnum,dofnum)
-      var kg1 = kgcs.subset(math.index([0,1],[a,a+1]))
-      Kgi.subset(math.index([dof0,dof1],[dof0,dof1]),kg1)
-      var kg2 = kgcs.subset(math.index([0,1],[a+2,a+3]))
-      Kgi.subset(math.index([dof0,dof1],[dof2,dof3]),kg2)
-      var kg3 = kgcs.subset(math.index([2,3],[a,a+1]))
-      Kgi.subset(math.index([dof2,dof3],[dof0,dof1]),kg3)
-      var kg4 = kgcs.subset(math.index([2,3],[a+2,a+3]))
-      Kgi.subset(math.index([dof2,dof3],[dof2,dof3]),kg4)
-      console.log("Kgi "+Kgi.toString())
-      Kgm.subset(math.index(math.range(0,dofnum),math.range(b,b+dofnum)),Kgi)
-    }
-    console.log("Kgm "+Kgm.toString())
-    
-    //Global stiffness Matrix
-    var Kg = math.zeros(dofnum,dofnum)
-    var i;
-    for (var i=0; i<elnum; i++)
-    {
-      const a = i*dofnum
-      Kg = math.add(Kg,Kgm.subset(math.index(math.range(0,dofnum),math.range(a,a+dofnum))))
-    }
-    console.log("Kg "+Kg.toString())
-    
-    //Create Initial Force Vector
-    var fi = math.zeros(dofnum,1)
-    var i;
-    for (var i=0; i<nonum; i++)
-    {
-      var f1 = nodes.subset(math.index(i,5))
-      var f2 = nodes.subset(math.index(i,6))
-      fi.subset(math.index(i*2,0),f1)
-      fi.subset(math.index(i*2+1,0),f2)
-    }
-    console.log("f initial "+fi.toString())
-    
-    //Application of Boundary Conditions to Kg and fi
-    var i;
-    var active = []
-    for (var i=0; i<nonum; i++)
-    {
-      var dof1 = nodes.subset(math.index(i,[0,3]))
-      var dof2 = nodes.subset(math.index(i,[0,4]))
-      if (dof1.subset(math.index(0,1))==0)
-      {
-        active.push(dof1.subset(math.index(0,0))*2)
-      }
-      if (dof2.subset(math.index(0,1))==0)
-      {
-        active.push(dof2.subset(math.index(0,0))*2+1)
-      }
-    }
-    console.log("active "+active)
-    var Ka = Kg.subset(math.index(active,active))
-    console.log("Ka "+Ka.toString())
-    var fa = fi.subset(math.index(active,0))
-    console.log("fa "+fa.toString())
-    
-    //Invert active stiffness matrix
-    var Kainv = math.inv(Ka)
-    console.log("Ka Inverse "+Kainv.toString())
-    
-    //Active Displacements
-    var ua = math.multiply(Kainv,fa)
-    console.log("Active Displacements "+ua.toString())
-    
-    //Global displacements
-    var ug = math.zeros(dofnum,1)
-    ug.subset(math.index(active,0),ua)
-    console.log("Global Displacement Vector "+math.format(ug,{notation: 'fixed', precision: 4}).toString())
-    
-    //Global force vector
-    var fg = math.multiply(Kg,ug)
-    console.log("Global forces "+math.format(fg,{notation: 'fixed', precision: 4}).toString())
-    
-    //Combined Element force vectors
-    const fe = math.zeros(4,elnum)
-    var i;
-    for (var i=0; i<elnum; i++)
-    {
-      var node1 = elements.subset(math.index(i,1))
-      var node2 = elements.subset(math.index(i,2))
-      var ue = math.zeros(4,1)
-      ue.subset(math.index([0,1],0),ug.subset(math.index([node1*2,node1*2+1],0)))
-      ue.subset(math.index([2,3],0),ug.subset(math.index([node2*2,node2*2+1],0)))
-      
-      const a = i*4
-      var r = rot.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]))
-      var k = kecs.subset(math.index([0,1,2,3],[a,a+1,a+2,a+3]))
-      const fi = math.multiply(math.multiply(k,math.transpose(r)),ue)
-      fe.subset(math.index([0,1,2,3],i),fi)
-    }
-    console.log("Element Forces "+math.format(fe,{notation: 'fixed', precision: 4}).toString())
-    
-    //Generating Deformed Configuration Figure
-    //Calculate Scaling Factor
-    var xes = nodes.subset(math.index(math.range(0,nonum),1))
-    var dxes = math.add(nodes.subset(math.index(math.range(0,nonum),1)),ug.subset(math.index(math.range(0,nonum*2,2),0)))
-    var dxrange = math.max(math.max(xes),math.max(dxes))-math.min(math.min(xes),math.min(dxes))
-    console.log("Vector of X values "+dxes.toString())
-    console.log("X range "+dxrange.toString())
-    
-    var yes = nodes.subset(math.index(math.range(0,nonum),2))
-    var dyes = math.add(nodes.subset(math.index(math.range(0,nonum),2)),ug.subset(math.index(math.range(1,nonum*2,2),0)))
-    var dyrange = math.max(math.max(yes),math.max(dyes))-math.min(math.min(yes),math.min(dyes))
-    console.log("Vector of Y values "+dyes.toString())
-    console.log("Y range "+dyrange.toString())
-    
-    var dcwidth = document.getElementById('dc').offsetWidth-52
-    var dcheight = document.getElementById('dc').offsetHeight-52
-    console.log("Canvas Width "+dcwidth.toString())
-    console.log("Canvas Height "+dcheight.toString())
-    
-    var dxratio = dcwidth/dxrange
-    var dyratio = dcheight/dyrange
-    var dsf = math.min(dxratio, dyratio)
-    console.log("Scaling factor "+dsf.toString())
-    
-    var dxoffset = (dcwidth-dxrange*dsf)/2
-    console.log("X offset "+dxoffset.toString())
-    
-    var dyoffset = (dcheight-dyrange*dsf)/2
-    console.log("Y offset "+dyoffset.toString())
-    
-    var nxoffset = math.abs(math.min(math.min(xes),math.min(dxes),0))*dsf
-    console.log("min X offset "+nxoffset.toString())
-    var nyoffset = math.abs(math.min(math.min(yes),math.min(dyes),0))*dsf
-    console.log("min Y offset "+nyoffset.toString())
-    
-    /*for (var i=0; i<nonum; i++)
-    {
-      var c = document.getElementById("dc");
-      var ctx = c.getContext("2d");
-      ctx.beginPath();
-      ctx.arc((ug.subset(math.index(2*i,0))*dsf+26+dxoffset), (dcheight+52)-(ug.subset(math.index(2*i+1,0))*dsf+26+dyoffset), 4, 0, 2*math.pi);
-      ctx.fillStyle = '#000000'
-      ctx.fill()
-      ctx.strokeStyle = '#000000'
-      ctx.stroke()
-    }*/
-    
-    for (var i=0; i<elnum; i++)
-    {
-      const node1 = elements.subset(math.index(i,1))
-      const node2 = elements.subset(math.index(i,2))
-      const x1 = nodes.subset(math.index(node1,1))
-      const x2 = nodes.subset(math.index(node2,1))
-      const y1 = nodes.subset(math.index(node1,2))
-      const y2 = nodes.subset(math.index(node2,2))
-      var c = document.getElementById("dc");
-      var ctx = c.getContext("2d");
-      ctx.beginPath();
-      ctx.moveTo(x1*dsf+26+dxoffset+nxoffset, (dcheight+52)-(y1*dsf+26+dyoffset+nyoffset));
-      ctx.lineTo(x2*dsf+26+dxoffset+nxoffset, (dcheight+52)-(y2*dsf+26+dyoffset+nyoffset));
-      ctx.strokeStyle = '#cfcfcf';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    }
-    
-    for (var i=0; i<elnum; i++)
-    {
-      const node1 = elements.subset(math.index(i,1))
-      const node2 = elements.subset(math.index(i,2))
-      const x1 = nodes.subset(math.index(node1,1))
-      const x2 = nodes.subset(math.index(node2,1))
-      const y1 = nodes.subset(math.index(node1,2))
-      const y2 = nodes.subset(math.index(node2,2))
-      var u1 = ug.subset(math.index(2*node1,0))
-      var u2 = ug.subset(math.index(2*node2,0))
-      var w1 = ug.subset(math.index(2*node1+1,0))
-      var w2 = ug.subset(math.index(2*node2+1,0))
-      var c = document.getElementById("dc");
-      var ctx = c.getContext("2d");
-      ctx.beginPath();
-      ctx.moveTo((x1+u1)*dsf+26+dxoffset+nxoffset, (dcheight+52)-((y1+w1)*dsf+26+dyoffset+nyoffset));
-      ctx.lineTo((x2+u2)*dsf+26+dxoffset+nxoffset, (dcheight+52)-((y2+w2)*dsf+26+dyoffset+nyoffset));
-      ctx.strokeStyle = '#0000ff';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-    }
-    
-    var t = document.getElementById("dt");
-    for (var i=0; i<parseInt(ug.size); i++)
-    {
-      var r = t.insertRow(i);
-      var c0 = r.insertCell(0);
-      c0.innerHTML = i;
-      var c1 = r.insertCell(1);
-      c1.innerHTML = math.format(ug.subset(math.index(i,0)),{notation: 'fixed', precision: 4}).toString();
-    }
-    
-    function dispTable() 
-    {
-      var table = document.getElementById("dt");
-      var row = table.insertRow(0);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      cell1.innerHTML = "Node #";
-      cell2.innerHTML = "X Displacement";
-      cell3.innerHTML = "Y Displacement";
-      for (var i=0; i<(dofnum/2); i++)
-      {
-        var row = table.insertRow(i+1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        cell1.innerHTML = i.toString();
-        cell2.innerHTML = math.format(ug.subset(math.index(2*i,0)),{notation: 'fixed', precision: 4}).toString();
-        cell3.innerHTML = math.format(ug.subset(math.index(2*i+1,0)),{notation: 'fixed', precision: 4}).toString();
-      }
-    }
-    
-    function reactTable() 
-    {
-      var table = document.getElementById("re");
-      var row = table.insertRow(0);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      cell1.innerHTML = "Node #";
-      cell2.innerHTML = "F_x";
-      cell3.innerHTML = "F_y";
-      var j = 1;
-      for (var i=0; i<(dofnum/2); i++)
-      {
-        if (nodes.subset(math.index(i,3))==1 || nodes.subset(math.index(i,4))==1)
-        {
-          var row = table.insertRow(j);
-          var cell1 = row.insertCell(0);
-          var cell2 = row.insertCell(1);
-          var cell3 = row.insertCell(2);
-          cell1.innerHTML = i.toString();
-          cell2.innerHTML = math.format(fg.subset(math.index(2*i,0)),{notation: 'fixed', precision: 4}).toString();
-          cell3.innerHTML = math.format(fg.subset(math.index(2*i+1,0)),{notation: 'fixed', precision: 4}).toString();
-          j++;
-        }
-      }
-    }
-    
-    
-    function elementForcesTable() 
-    {
-      var table = document.getElementById("ef");
-      var row = table.insertRow(0);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      cell1.innerHTML = "Element #";
-      cell2.innerHTML = "Force";
-      cell3.innerHTML = "Mode";
-      for (var i=0; i<(elnum); i++)
-      {
-        var row = table.insertRow(i+1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        cell1.innerHTML = i.toString();
-        cell2.innerHTML = math.abs(math.format(fe.subset(math.index(2,i)),{notation: 'fixed', precision: 4})).toString();
-        var s = "";
-        if(math.format(fe.subset(math.index(2,i)),{notation: 'fixed', precision: 4})>0)
-        {
-          s = "Tension"
-        }
-        if(math.format(fe.subset(math.index(2,i)),{notation: 'fixed', precision: 4})<0)
-        {
-          s = "Compression"
-        }
-        if(math.format(fe.subset(math.index(2,i)),{notation: 'fixed', precision: 4})==0)
-        {
-          s = "Zero Force Member"
-        }
-        
-        cell3.innerHTML = s;
-      }
-    }
-
-    dispTable()
-    reactTable()
-    elementForcesTable()
-
-    
-    
-  </script>
   </body>
 </html>
