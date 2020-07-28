@@ -126,3 +126,11 @@ img{
   margin-right: auto;
   margin-left: auto;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  border: 1px solid black; 
+}
